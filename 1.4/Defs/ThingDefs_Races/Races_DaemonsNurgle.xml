@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========= Plaguebeaerer base ========= -->
+    <ThingDef ParentName="BEWH_DaemonBase" Name="BEWH_PlaguebearerBase" Abstract="True">
+        <label>plaguebearer</label>
+        <description>Daemon of Nurgle</description>
+        <statBases>
+            <MarketValue>150</MarketValue>
+            <ArmorRating_Sharp>0.95</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.95</ArmorRating_Blunt>
+            <ArmorRating_Heat>1.4</ArmorRating_Heat>
+            <ToxicResistance>2</ToxicResistance>
+            <PainShockThreshold>5</PainShockThreshold>
+            <MoveSpeed>3.9</MoveSpeed>
+        </statBases>
+        <tools>
+            <li>
+                <label>left claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>10.0</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+            <li>
+                <label>right claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>10.0</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+        </tools>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_Infecter">
+                <infectionChance>70</infectionChance>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <!-- ========= Plaguebearers ========= -->
+
+
+    <ThingDef ParentName="BEWH_PlaguebearerBase">
+        <defName>BEWH_Plaguebearer</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>Manhunter</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BEWH_PlaguebearerBase">
+        <defName>BEWH_SummonedPlaguebearer</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>BEWH_FriendlyDaemon</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>BEWH_SummonedPlaguebearer</defName>
+        <label>plaguebearer</label>
+        <race>BEWH_SummonedPlaguebearer</race>
+        <combatPower>100</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Daemon/Plaguebearer</texPath>
+                    <drawSize>1.5</drawSize>
+                    <shaderType>MetaOverlay</shaderType>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <weaponMoney>9999~9999</weaponMoney>
+        <weaponTags>
+            <li>Plaguebearer</li>
+        </weaponTags>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>BEWH_Plaguebearer</defName>
+        <label>plaguebearer</label>
+        <race>BEWH_Plaguebearer</race>
+        <combatPower>100</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Daemon/Plaguebearer</texPath>
+                    <drawSize>1.5</drawSize>
+                    <shaderType>MetaOverlay</shaderType>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <weaponMoney>9999~9999</weaponMoney>
+        <weaponTags>
+            <li>Plaguebearer</li>
+        </weaponTags>
+    </PawnKindDef>
+
+
+</Defs>

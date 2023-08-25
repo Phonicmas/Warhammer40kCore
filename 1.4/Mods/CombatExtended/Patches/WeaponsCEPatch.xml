@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- ===== HELLBLADE ===== -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Hellblade"]</xpath>
+		<value>
+			<stuffCategories>
+				<li>Metallic_Weapon</li>
+			</stuffCategories>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BEWH_Hellblade"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>point</label>
+					<capacities>
+						<li>Stab</li>
+					</capacities>
+					<power>58</power>
+					<cooldownTime>2</cooldownTime>
+					<armorPenetrationSharp>22</armorPenetrationSharp>
+					<armorPenetrationBlunt>6.2</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>edge</label>
+					<capacities>
+						<li>Cut</li>
+					</capacities>
+					<power>58</power>
+					<cooldownTime>2.8</cooldownTime>
+					<armorPenetrationSharp>18</armorPenetrationSharp>
+					<armorPenetrationBlunt>6.2</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BEWH_Hellblade"]/weaponTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BEWH_Hellblade"]</xpath>
+			<value>
+				<weaponTags />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Hellblade"]/weaponTags</xpath>
+		<value>
+			<li>CE_OneHandedWeapon</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Hellblade"]</xpath>
+		<value>
+			<equippedStatOffsets>
+				<MeleeCritChance>0.35</MeleeCritChance>
+				<MeleeParryChance>0.45</MeleeParryChance>
+				<MeleeDodgeChance>0.2</MeleeDodgeChance>
+			</equippedStatOffsets>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Hellblade"]</xpath>
+		<value>
+			<statBases>
+				<Bulk>4</Bulk>
+				<MeleeCounterParryBonus>0.3</MeleeCounterParryBonus>
+			</statBases>
+		</value>
+	</Operation>
+
+
+	<!-- ===== DAEMONETTECLAW ===== -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_DaemonetteClaw"]</xpath>
+		<value>
+			<stuffCategories>
+				<li>Metallic_Weapon</li>
+			</stuffCategories>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BEWH_DaemonetteClaw"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>point</label>
+					<capacities>
+						<li>Stab</li>
+					</capacities>
+					<power>19</power>
+					<cooldownTime>1</cooldownTime>
+					<armorPenetrationSharp>29</armorPenetrationSharp>
+					<armorPenetrationBlunt>6.5</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>edge</label>
+					<capacities>
+						<li>Cut</li>
+					</capacities>
+					<power>19</power>
+					<cooldownTime>0.65</cooldownTime>
+					<armorPenetrationSharp>24</armorPenetrationSharp>
+					<armorPenetrationBlunt>6.5</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BEWH_DaemonetteClaw"]/weaponTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BEWH_DaemonetteClaw"]</xpath>
+			<value>
+				<weaponTags />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_DaemonetteClaw"]/weaponTags</xpath>
+		<value>
+			<li>CE_OneHandedWeapon</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_DaemonetteClaw"]</xpath>
+		<value>
+			<equippedStatOffsets>
+				<MeleeCritChance>0.35</MeleeCritChance>
+				<MeleeParryChance>0.2</MeleeParryChance>
+				<MeleeDodgeChance>0.4</MeleeDodgeChance>
+			</equippedStatOffsets>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_DaemonetteClaw"]</xpath>
+		<value>
+			<statBases>
+				<Bulk>2.5</Bulk>
+				<MeleeCounterParryBonus>0.4</MeleeCounterParryBonus>
+			</statBases>
+		</value>
+	</Operation>
+
+
+	<!-- ===== PLAGUESWORD ===== -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Plaguesword"]</xpath>
+		<value>
+			<stuffCategories>
+				<li>Metallic_Weapon</li>
+			</stuffCategories>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BEWH_Plaguesword"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>point</label>
+					<capacities>
+						<li>BEWH_PSStab</li>
+					</capacities>
+					<power>36</power>
+					<cooldownTime>1.4</cooldownTime>
+					<armorPenetrationSharp>20</armorPenetrationSharp>
+					<armorPenetrationBlunt>5.5</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>edge</label>
+					<capacities>
+						<li>BEWH_PSCut</li>
+					</capacities>
+					<power>36</power>
+					<cooldownTime>1.9</cooldownTime>
+					<armorPenetrationSharp>16</armorPenetrationSharp>
+					<armorPenetrationBlunt>5.5</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BEWH_Plaguesword"]/weaponTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BEWH_Plaguesword"]</xpath>
+			<value>
+				<weaponTags />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Plaguesword"]/weaponTags</xpath>
+		<value>
+			<li>CE_OneHandedWeapon</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Plaguesword"]</xpath>
+		<value>
+			<equippedStatOffsets>
+				<MeleeCritChance>0.35</MeleeCritChance>
+				<MeleeParryChance>0.3</MeleeParryChance>
+				<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			</equippedStatOffsets>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_Plaguesword"]</xpath>
+		<value>
+			<statBases>
+				<Bulk>3</Bulk>
+				<MeleeCounterParryBonus>0.3</MeleeCounterParryBonus>
+			</statBases>
+		</value>
+	</Operation>
+
+
+	<!-- ===== DAGGER OF TZEENTCH ===== -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_PinkHorrorDagger"]</xpath>
+		<value>
+			<stuffCategories>
+				<li>Metallic_Weapon</li>
+			</stuffCategories>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BEWH_PinkHorrorDagger"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>point</label>
+					<capacities>
+						<li>Stab</li>
+					</capacities>
+					<power>21</power>
+					<cooldownTime>1.1</cooldownTime>
+					<armorPenetrationSharp>33</armorPenetrationSharp>
+					<armorPenetrationBlunt>6.7</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>edge</label>
+					<capacities>
+						<li>Cut</li>
+					</capacities>
+					<power>21</power>
+					<cooldownTime>1.1</cooldownTime>
+					<armorPenetrationSharp>31</armorPenetrationSharp>
+					<armorPenetrationBlunt>6.7</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BEWH_PinkHorrorDagger"]/weaponTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BEWH_PinkHorrorDagger"]</xpath>
+			<value>
+				<weaponTags />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_PinkHorrorDagger"]/weaponTags</xpath>
+		<value>
+			<li>CE_OneHandedWeapon</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_PinkHorrorDagger"]</xpath>
+		<value>
+			<equippedStatOffsets>
+				<MeleeCritChance>0.55</MeleeCritChance>
+				<MeleeParryChance>0.15</MeleeParryChance>
+				<MeleeDodgeChance>0.15</MeleeDodgeChance>
+			</equippedStatOffsets>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BEWH_PinkHorrorDagger"]</xpath>
+		<value>
+			<statBases>
+				<Bulk>1.5</Bulk>
+				<MeleeCounterParryBonus>0.2</MeleeCounterParryBonus>
+			</statBases>
+		</value>
+	</Operation>
+
+</Patch>

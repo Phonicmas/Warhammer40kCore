@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Ritual -->
+
+    <WorkTypeDef>
+        <defName>BEWH_RitualWorkType</defName>
+        <labelShort>ritual</labelShort>
+        <pawnLabel>Ritualist</pawnLabel>
+        <gerundLabel>ritual</gerundLabel>
+        <description>Perform ritual</description>
+        <verb>Perform ritual</verb>
+        <naturalPriority>1</naturalPriority>
+        <workTags>
+            <li>ManualSkilled</li>
+            <li>Commoner</li>
+            <li>AllWork</li>
+        </workTags>
+    </WorkTypeDef>
+
+</Defs>

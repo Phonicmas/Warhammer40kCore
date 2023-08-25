@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>BEWH_FriendlyDaemon</defName>
+    <stateClass>Core40k.MentalState_FriendlyDaemon</stateClass>
+    <label>rage</label>
+	<minTicksBeforeRecovery>20001</minTicksBeforeRecovery>
+    <category>Aggro</category>
+    <nameColor>(0.9,0.2,0.5)</nameColor>
+    <beginLetter>{0} is ready for combat!</beginLetter>
+    <recoveryMessage>...</recoveryMessage>
+    <baseInspectLine>Combat ready</baseInspectLine>
+    <recoverFromSleep>false</recoverFromSleep>
+    <recoverFromDowned>false</recoverFromDowned>
+    <recoverFromCollapsingExhausted>false</recoverFromCollapsingExhausted>
+  </MentalStateDef> 
+
+</Defs>

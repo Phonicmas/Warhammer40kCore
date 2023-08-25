@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- No Sound -->
+
+    <SoundDef>
+        <defName>BEWH_NoSound</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>NoSound</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>42</volumeRange>
+                <distRange>20~50</distRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <!-- No Sound Sustain -->
+
+    <SoundDef>
+        <defName>BEWH_NoSoundSustain</defName>
+        <context>MapOnly</context>
+        <sustain>True</sustain>
+        <maxSimultaneous>1</maxSimultaneous>
+        <priorityMode>PrioritizeNearest</priorityMode>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>NoSound</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>42</volumeRange>
+                <distRange>20~50</distRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

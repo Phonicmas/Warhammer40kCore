@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- Daemon Weapon -->
+
+    <SoundDef>
+        <defName>BEWH_DaemonWeaponSound</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>DaemonSword</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>17~20</volumeRange>
+                <pitchRange>0.9152174~1.169566</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

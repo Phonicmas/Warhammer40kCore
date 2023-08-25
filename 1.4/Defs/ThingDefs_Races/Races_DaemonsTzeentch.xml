@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========= Pink Horror Base ========= -->
+    <ThingDef ParentName="BEWH_DaemonBase" Name="BEWH_PinkHorrorBase" Abstract="True">
+        <label>pink horror</label>
+        <description>Daemon of Tzeentch</description>
+        <race>
+            <deathActionWorkerClass>Core40k.DeathActionWorker_PinkHorror</deathActionWorkerClass>
+        </race>
+        <statBases>
+            <MarketValue>150</MarketValue>
+            <ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+            <ArmorRating_Heat>1</ArmorRating_Heat>
+            <MoveSpeed>5.5</MoveSpeed>
+        </statBases>
+        <tools>
+            <li>
+                <label>left claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>8.0</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+            <li>
+                <label>right claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>8.0</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+            <li>
+                <label>teeth</label>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>15</power>
+                <cooldownTime>1.4</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.5</chanceFactor>
+                <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+            </li>
+        </tools>
+        <verbs>
+            <li>
+                <label>ranged</label>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>BEWH_PinkHorrorProjectileNoVPE</defaultProjectile>
+                <warmupTime>1.0</warmupTime>
+                <range>25.9</range>
+                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                <burstShotCount>2</burstShotCount>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+
+
+    <!-- ========= Blue Horror base ========= -->
+    <ThingDef ParentName="BEWH_DaemonBase" Name="BEWH_BlueHorrorBase" Abstract="True">
+        <label>blue horror</label>
+        <description>Daemon of Tzeentch</description>
+        <statBases>
+            <MarketValue>150</MarketValue>
+            <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.8</ArmorRating_Heat>
+            <MoveSpeed>5.2</MoveSpeed>
+        </statBases>
+        <tools>
+            <li>
+                <label>left claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>5.0</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+            <li>
+                <label>right claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>5.0</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+            <li>
+                <label>teeth</label>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.4</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.5</chanceFactor>
+                <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+            </li>
+        </tools>
+        <verbs>
+            <li>
+                <label>ranged</label>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>BEWH_BlueHorrorProjectileNoVPE</defaultProjectile>
+                <warmupTime>1.0</warmupTime>
+                <range>25.9</range>
+                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                <burstShotCount>2</burstShotCount>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+
+
+    <!-- ========= Pink Horrors ========= -->
+
+
+    <ThingDef ParentName="BEWH_PinkHorrorBase">
+        <defName>BEWH_PinkHorror</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>Manhunter</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BEWH_PinkHorrorBase">
+        <defName>BEWH_SummonedPinkHorror</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>BEWH_FriendlyDaemon</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>BEWH_SummonedPinkHorror</defName>
+        <label>pink horror</label>
+        <race>BEWH_SummonedPinkHorror</race>
+        <combatPower>100</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Daemon/PinkHorror</texPath>
+                    <drawSize>1.5</drawSize>
+                    <shaderType>MetaOverlay</shaderType>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <weaponMoney>9999~9999</weaponMoney>
+        <weaponTags>
+            <li>PinkHorror</li>
+        </weaponTags>
+    </PawnKindDef>
+
+
+    <!-- ========= Blue Horrors ========= -->
+
+
+    <ThingDef ParentName="BEWH_BlueHorrorBase">
+        <defName>BEWH_BlueHorror</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>Manhunter</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BEWH_BlueHorrorBase">
+        <defName>BEWH_SummonedBlueHorror</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>BEWH_FriendlyDaemon</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>BEWH_SummonedBlueHorror</defName>
+        <label>blue horror</label>
+        <race>BEWH_SummonedBlueHorror</race>
+        <combatPower>100</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Daemon/BlueHorror</texPath>
+                    <drawSize>0.8</drawSize>
+                    <shaderType>MetaOverlay</shaderType>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+
+</Defs>

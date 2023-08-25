@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Base Weapon -->
+    <ThingDef Abstract="True" Name="CHDaemonWeaponBase" ParentName="BaseWeapon">
+        <techLevel>Ultra</techLevel>
+        <soundInteract>BEWH_DaemonWeaponSound</soundInteract>
+        <meleeHitSound>BEWH_DaemonWeaponSound</meleeHitSound>
+        <statBases>
+            <MarketValue>2000</MarketValue>
+            <Mass>4</Mass>
+        </statBases>
+        <burnableByRecipe>true</burnableByRecipe>
+        <thingCategories>
+            <li>WeaponsMelee</li>
+        </thingCategories>
+        <tradeTags>
+            <li>DaemonMelee</li>
+        </tradeTags>
+    </ThingDef>
+
+    <!-- Hellblade -->
+
+    <ThingDef ParentName="CHDaemonWeaponBase">
+        <defName>BEWH_Hellblade</defName>
+        <label>Hellblade</label>
+        <description>Hellblade of a Bloodletter, enhanced by the powers of the warp.</description>
+        <equippedAngleOffset></equippedAngleOffset>
+        <graphicData>
+            <texPath>Things/Weapons/Hellblade</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <tools>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>40</power>
+                <cooldownTime>2.5</cooldownTime>
+                <armorPenetration>0.75</armorPenetration>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>40</power>
+                <cooldownTime>3</cooldownTime>
+                <armorPenetration>0.75</armorPenetration>
+            </li>
+        </tools>
+        <weaponTags>
+            <li>Bloodletter</li>
+        </weaponTags>
+    </ThingDef>
+
+    <!-- Daemonette Claw -->
+
+    <ThingDef ParentName="CHDaemonWeaponBase">
+        <defName>BEWH_DaemonetteClaw</defName>
+        <label>Daemonette Claw</label>
+        <description>Claw of a daemonette, a hardened carapace forming a deadly edge capable of
+            penetrating even power armour.</description>
+        <equippedAngleOffset></equippedAngleOffset>
+        <graphicData>
+            <texPath>Things/Weapons/DaemonetteClaw</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <tools>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>0.65</cooldownTime>
+                <armorPenetration>0.8</armorPenetration>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1</cooldownTime>
+                <armorPenetration>0.8</armorPenetration>
+            </li>
+        </tools>
+        <weaponTags>
+            <li>Daemonette</li>
+        </weaponTags>
+    </ThingDef>
+
+    <!-- Plaguesword - Add toxins or infections to hits or atleast chance to apply-->
+
+    <ThingDef ParentName="CHDaemonWeaponBase">
+        <defName>BEWH_Plaguesword</defName>
+        <label>Plaguesword</label>
+        <description>Plaguesword of a Plaguebearer, enhanced by the powers of the warp.</description>
+        <equippedAngleOffset></equippedAngleOffset>
+        <graphicData>
+            <texPath>Things/Weapons/Plaguesword</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <tools>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>BEWH_PSCut</li>
+                </capacities>
+                <power>26</power>
+                <cooldownTime>1.5</cooldownTime>
+                <armorPenetration>0.6</armorPenetration>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>BEWH_PSStab</li>
+                </capacities>
+                <power>26</power>
+                <cooldownTime>2</cooldownTime>
+                <armorPenetration>0.6</armorPenetration>
+            </li>
+        </tools>
+        <weaponTags>
+            <li>Plaguebearer</li>
+        </weaponTags>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_Infecter">
+                <infectionChance>70</infectionChance>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <!-- Dagger of Tzeentch -->
+
+    <ThingDef ParentName="CHDaemonWeaponBase">
+        <defName>BEWH_PinkHorrorDagger</defName>
+        <label>Dagger of Tzeentch</label>
+        <description>Magically enchanced of a Horror of Tzeentch, enhanced by the powers of the
+            warp, capaable on penetrating even power armour.</description>
+        <equippedAngleOffset></equippedAngleOffset>
+        <graphicData>
+            <texPath>Things/Weapons/HorrorDagger</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <tools>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>13</power>
+                <cooldownTime>1</cooldownTime>
+                <armorPenetration>1</armorPenetration>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>13</power>
+                <cooldownTime>1</cooldownTime>
+                <armorPenetration>1</armorPenetration>
+            </li>
+        </tools>
+        <weaponTags>
+            <li>PinkHorror</li>
+        </weaponTags>
+    </ThingDef>
+
+</Defs>

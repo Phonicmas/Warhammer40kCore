@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========= Daemonette base ========= -->
+    <ThingDef ParentName="BEWH_DaemonBase" Name="BEWH_DaemonetteBase" Abstract="True">
+        <label>daemonette</label>
+        <description>Daemon of Slaanesh</description>
+        <statBases>
+            <MarketValue>150</MarketValue>
+            <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.8</ArmorRating_Heat>
+            <MoveSpeed>9</MoveSpeed>
+        </statBases>
+        <tools>
+            <li>
+                <label>left claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>7.5</power>
+                <cooldownTime>0.4</cooldownTime>
+                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+            <li>
+                <label>right claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>7.5</power>
+                <cooldownTime>0.4</cooldownTime>
+                <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+        </tools>
+    </ThingDef>
+
+
+    <!-- ========= Daemonette ========= -->
+
+
+    <ThingDef ParentName="BEWH_DaemonetteBase">
+        <defName>BEWH_Daemonette</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>Manhunter</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BEWH_DaemonetteBase">
+        <defName>BEWH_SummonedDaemonette</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>BEWH_FriendlyDaemon</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>BEWH_SummonedDaemonette</defName>
+        <label>daemonette</label>
+        <race>BEWH_SummonedDaemonette</race>
+        <combatPower>100</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Daemon/Daemonette</texPath>
+                    <drawSize>1.5</drawSize>
+                    <shaderType>MetaOverlay</shaderType>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <weaponMoney>9999~9999</weaponMoney>
+        <weaponTags>
+            <li>Daemonette</li>
+        </weaponTags>
+        <destroyGearOnDrop>true</destroyGearOnDrop>
+    </PawnKindDef>
+
+</Defs>

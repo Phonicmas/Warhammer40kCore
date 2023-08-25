@@ -57,10 +57,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefModExtension_Geneseed.cs" />
     <Compile Include="DefModExtension_Ritual.cs" />
     <Compile Include="MentalState_FriendlyDaemon.cs" />
     <Compile Include="DeathActionWorker_PinkHorror.cs" />
     <Compile Include="DeathActionWorker_Daemon.cs" />
+    <Compile Include="RecipeWorkerClass_Geneseed.cs" />
     <Compile Include="WorkGiver_DoBill_Ritual.cs" />
     <Compile Include="RecipeWorkerClass_Ritual.cs" />
     <Compile Include="WarpFlameDamageWorker.cs" />

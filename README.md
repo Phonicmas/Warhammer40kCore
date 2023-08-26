@@ -11,13 +11,11 @@
 ## Ideas
 1. Wounded space marine drop pod - for genes acqusition (Genes Module)
 2. Complete gene drop pod - archmagus misplaced these (Genes Module)
-3. Chapter specific genes? (Genes Module)
-4. Ork Genes? (New Module)
-5. Make item that when used creates a whole gene-seed ready for use, make expensive and possibly require friendship with imperium. (Genes Module)
-6. Make more chaos genes, like tentacle of tzeentch or mouth of nurgle, make them work on the ritual system. Maybe a random chance to get a beneficial mutation or a bad one. (New Module)
-7. Nervous breakdown may cause chaos to notice and do stuff? (New Module - same as above)
-8. Harvest psychic potential from dead psykers to upgrade other psychic powers. (Genes Module)
-9. Add guardsmen to imperial faction that are then patched to use Grimworld Hammer of imperium guardsmen armor. (Faction Module)
+3. Make more chaos genes, like tentacle of tzeentch or mouth of nurgle, make them work on the ritual system. Maybe a random chance to get a beneficial mutation or a bad one. (New Module)
+4. Nervous breakdown may cause chaos to notice and do stuff? (New Module - same as above)
+5. Harvest psychic potential from dead psykers to upgrade other psychic powers. (Genes Module)
+6. Add guardsmen to imperial faction that are then patched to use Grimworld Hammer of imperium guardsmen armor. (Faction Module)
+7. Make Imperium faction use different chapter armor. (Faction Module)
 
 ## Fixes to do
 1. Psytrainer quest reward giving access to paths without psyker gene. (VPE thing, need to look into code and harmony fix it?) (Psycast Module)

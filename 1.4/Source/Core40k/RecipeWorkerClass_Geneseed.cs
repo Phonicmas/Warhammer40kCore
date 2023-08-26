@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace Core40k
@@ -11,22 +12,32 @@ namespace Core40k
             {
                 return;
             }
-            List<GeneDef> genesToGive = recipe.GetModExtension<DefModExtension_Geneseed>().givesGenes;
 
-            if (billDoer.genes != null)
+            List<GeneDef> genesToGive = recipe.GetModExtension<DefModExtension_Geneseed>().givesGenes;
+            if (genesToGive.NullOrEmpty())
             {
-                //Adds genes to give
-                if (!genesToGive.NullOrEmpty())
-                {
-                    foreach (GeneDef gene in genesToGive)
-                    {
-                        if (gene != null && !billDoer.genes.HasGene(gene))
-                        {
-                            billDoer.genes.AddGene(gene, true);
-                        }
-                    }
-                }
+                return;
             }
+
+            string xenogermName = recipe.GetModExtension<DefModExtension_Geneseed>().xenogermName;
+            XenotypeIconDef xenotypeIcon = recipe.GetModExtension<DefModExtension_Geneseed>().xenotypeIcon;
+
+            Genepack genepack = (Genepack)ThingMaker.MakeThing(ThingDefOf.Genepack);
+            genepack.Initialize(genesToGive);
+
+            List<Genepack> genepacks = new List<Genepack>
+            {
+                genepack
+            };
+
+            Xenogerm xenogerm = (Xenogerm)ThingMaker.MakeThing(ThingDefOf.Xenogerm);
+            xenogerm.Initialize(genepacks, xenogermName, xenotypeIcon);
+
+            if (GenPlace.TryPlaceThing(((Thing)xenogerm), billDoer.PositionHeld, billDoer.MapHeld, ThingPlaceMode.Near))
+            {
+                return;
+            }
+            Log.Error("Could not drop item near " + (object)billDoer.PositionHeld);
         }
 
     }

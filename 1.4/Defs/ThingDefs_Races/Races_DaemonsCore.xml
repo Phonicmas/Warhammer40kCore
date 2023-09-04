@@ -27,6 +27,7 @@
             <LeatherAmount>0</LeatherAmount>
         </statBases>
         <uiIconScale>1.5</uiIconScale>
+        <tradeability>None</tradeability>
         <tradeTags>
             <li>NonContractable</li>
         </tradeTags>

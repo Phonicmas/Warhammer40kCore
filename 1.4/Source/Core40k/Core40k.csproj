@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefModExtension_DaemonSummon.cs" />
     <Compile Include="DefModExtension_Geneseed.cs" />
     <Compile Include="DefModExtension_Ritual.cs" />
     <Compile Include="MentalState_FriendlyDaemon.cs" />

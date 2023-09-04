@@ -16,9 +16,13 @@
 5. Harvest psychic potential from dead psykers to upgrade other psychic powers. (Genes Module)
 6. Add guardsmen to imperial faction that are then patched to use Grimworld Hammer of imperium guardsmen armor. (Faction Module)
 7. Make Imperium faction use different chapter armor. (Faction Module)
+8. Mechinator stuff, servo skulls (New module)
+9. Make new ritual spot for all chaos & psyker (Genes Module)
+10. Make new biosculptur like machine for imperium genes (Genes Module) And make it such that primarch requires custodes which requires primaris which requires SM.
 
 ## Fixes to do
 1. Psytrainer quest reward giving access to paths without psyker gene. (VPE thing, need to look into code and harmony fix it?) (Psycast Module)
 2. imperium faction quests not showing up properly for some? (Faction Module)
 3. Patch for immortals mod when person is afflitced with nurgles rot (Psycast Module)
-4. Marines called using favor doesnt have the correct xenotype (Faction Module)
+4. Marines called using favor doesnt have the correct xenotype (Make a new callaid method that applies the genes after spawning the pawn) (Faction Module)
+5. Marine can show up as slaves, they shouldnt (Faction Module)

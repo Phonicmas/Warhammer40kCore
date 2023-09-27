@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <LetterDef>
+    <defName>BEWH_GiftGiven</defName>
+    <color>(65, 201, 65)</color>
+    <flashColor>(74, 226, 74)</flashColor>
+    <flashInterval>90</flashInterval>
+    <arriveSound>LetterArrive_Good</arriveSound>
+  </LetterDef>
+
+  <LetterDef>
+    <defName>BEWH_NoGiftGiven</defName>
+    <color>(236, 54, 54)</color>
+    <flashColor>(239, 72, 72)</flashColor>
+    <flashInterval>90</flashInterval>
+    <arriveSound>LetterArrive</arriveSound>
+  </LetterDef>
+
+</Defs>

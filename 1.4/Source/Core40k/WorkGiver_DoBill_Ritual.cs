@@ -9,9 +9,13 @@ namespace Core40k
     {
         public override Job JobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
+            if (base.JobOnThing(pawn, thing, forced) == null)
+            {
+                return null;
+            }
 
             //Check if pawn would have a job by vanilla standards
-            if (base.JobOnThing(pawn, thing, forced) != null && thing is IBillGiver billGiver)
+            if (thing is IBillGiver billGiver)
             {
                 //Check is there is any recipe at all
                 BillStack billStack = billGiver.BillStack;
@@ -19,16 +23,15 @@ namespace Core40k
                 {
                     return null;
                 }
-                if (billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>() == null)
+                if (!billStack.FirstShouldDoNow.recipe.HasModExtension<DefModExtension_Ritual>())
                 {
                     return null;
                 }
-                string recipeDefName = billStack.FirstShouldDoNow.recipe.defName;
                 //Get info from modExtension
                 List<GeneDef> forbiddenGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().forbiddenGenes;
                 List<GeneDef> requiredGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().requiredGenes;
 
-                if (recipeDefName != null && pawn.genes != null)
+                if (pawn.genes != null)
                 {
                     //Checks if pawn has any genes its not allowed to have
                     if (!forbiddenGenes.NullOrEmpty())
@@ -53,10 +56,6 @@ namespace Core40k
                         }
                     }
                 }
-                else if (recipeDefName == null)
-                {
-                    return null;
-                }
                 return base.JobOnThing(pawn, thing, forced);
             }
             return null;
@@ -64,7 +63,11 @@ namespace Core40k
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            bool hasJob = base.HasJobOnThing(pawn, t, forced);
+            if (!base.HasJobOnThing(pawn, t, forced))
+            {
+                return false;
+            }
+
             if (t is IBillGiver billGiver)
             {
                 BillStack billStack = billGiver.BillStack;
@@ -72,45 +75,59 @@ namespace Core40k
                 {
                     return false;
                 }
-                if (billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>() == null)
+                if (!billStack.FirstShouldDoNow.recipe.HasModExtension<DefModExtension_Ritual>())
                 {
                     return false;
                 }
-                string recipeDefName = billStack.FirstShouldDoNow.recipe.defName;
+
                 //Get info from modExtension
                 List<GeneDef> forbiddenGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().forbiddenGenes;
                 List<GeneDef> requiredGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().requiredGenes;
 
-                if (recipeDefName != null && !hasJob && pawn.genes != null)
+                if (pawn.genes != null)
                 {
                     //Checks if pawn has any genes its not allowed to have
                     if (!forbiddenGenes.NullOrEmpty())
                     {
-                        for (int i = 0; i < forbiddenGenes.Count; i++)
+                        foreach (GeneDef gene in forbiddenGenes)
                         {
-                            if (forbiddenGenes[i] != null && pawn.genes.HasGene(forbiddenGenes[i]))
+                            if (gene != null && pawn.genes.HasGene(gene))
                             {
-                                JobFailReason.Is("May not have gene: " + forbiddenGenes[i].label.Translate());
+                                JobFailReason.Is("MayNotHaveGene".Translate(pawn.Named("PAWN"), gene.label));
                                 return false;
                             }
                         }
+
+                        /*for (int i = 0; i < forbiddenGenes.Count; i++)
+                        {
+                            if (forbiddenGenes[i] != null && pawn.genes.HasGene(forbiddenGenes[i]))
+                            {
+                                JobFailReason.Is("MayNotHaveGene".Translate(pawn.Named("PAWN"), forbiddenGenes[i].label));
+                                return false;
+                            }
+                        }*/
                     }
                     //Checks if pawn has any genes it needs to have
                     if (!requiredGenes.NullOrEmpty())
                     {
-                        for (int i = 0; i < requiredGenes.Count; i++)
+                        foreach (GeneDef gene in requiredGenes)
                         {
-                            if (requiredGenes[i] != null && !pawn.genes.HasGene(requiredGenes[i]))
+                            if (gene != null && !pawn.genes.HasGene(gene))
                             {
-                                JobFailReason.Is("Does not have gene: " + requiredGenes[i].label.Translate());
+                                JobFailReason.Is("DoesNotHaveGene".Translate(pawn.Named("PAWN"), gene.label));
                                 return false;
                             }
                         }
+
+                        /*for (int i = 0; i < requiredGenes.Count; i++)
+                        {
+                            if (requiredGenes[i] != null && !pawn.genes.HasGene(requiredGenes[i]))
+                            {
+                                JobFailReason.Is("DoesNotHaveGene".Translate(pawn.Named("PAWN"), requiredGenes[i].label));
+                                return false;
+                            }
+                        }*/
                     }
-                }
-                else if (recipeDefName == null)
-                {
-                    return false;
                 }
                 return true;
             }

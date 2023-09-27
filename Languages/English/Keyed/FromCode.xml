@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MayNotHaveGene>{0} may not have the gene: {1}.</MayNotHaveGene>
+  <DoesNotHaveGene>{0} does not have required gene: {1}.</DoesNotHaveGene>
+
+
+</LanguageData>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <HediffDef Name="BEWH_MutatedLimbBase" Abstract="True">
+        <everCurableByItem>false</everCurableByItem>
+        <defaultLabelColor>(0.8, 0.3, 0.3)</defaultLabelColor>
+        <isBad>false</isBad>
+        <modExtensions>
+            <li Class="Core40k.DefModExtension_Mutations" />
+        </modExtensions>
+    </HediffDef>
+
+</Defs>

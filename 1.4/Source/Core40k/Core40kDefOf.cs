@@ -10,6 +10,11 @@ namespace Core40k
 
         public static PawnKindDef BEWH_SummonedBlueHorror;
 
+        public static LetterDef BEWH_GiftGiven;
+        public static LetterDef BEWH_NoGiftGiven;
+
+        public static HediffDef BEWH_MutationRottingFlesh;
+
         static Core40kDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(Core40kDefOf));

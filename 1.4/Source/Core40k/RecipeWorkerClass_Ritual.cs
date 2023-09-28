@@ -74,9 +74,12 @@ namespace Core40k
                     addAndRemoveGenes = true;
                 }
 
+                string messageText;
+                string letterText;
                 if (addAndRemoveGenes)
                 {
-                    string messageText = billDoer.Name + " pleaded with " + giftGiver + ", and was granted the following gifts" + ":\n";
+                    messageText = "RitualCallsAnsweredMessage".Translate(billDoer.Named("PAWN"), giftGiver);
+                    letterText = "RitualCallsAnsweredLetter".Translate(billDoer.Named("PAWN"), giftGiver);
                     //Removes genes to remove
                     if (!genesToRemove.NullOrEmpty())
                     {
@@ -93,6 +96,7 @@ namespace Core40k
                             billDoer.genes.RemoveGene(gene);
                         }
                     }
+                    string grantedGiftsText = "\n";
                     //Adds genes to give
                     if (!genesToGive.NullOrEmpty())
                     {
@@ -101,16 +105,17 @@ namespace Core40k
                             if (gene != null && !billDoer.genes.HasGene(gene))
                             {
                                 billDoer.genes.AddGene(gene, true);
-                                messageText = messageText + "\n- " + gene.label;
+                                grantedGiftsText = grantedGiftsText + "\n- " + gene.label;
                             }
                         }
                     }
-                    Find.LetterStack.ReceiveLetter(billDoer.Name + " calls were answered", messageText, Core40kDefOf.BEWH_GiftGiven);
+                    Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_GiftGiven);
                 }
                 else
                 {
-                    string messageText = billDoer.Name + " tried to plead with " + giftGiver + "but was left unanswered";
-                    Find.LetterStack.ReceiveLetter(billDoer.Name + " calls were unanswered", messageText, Core40kDefOf.BEWH_NoGiftGiven);
+                    messageText = "RitualCallsUnansweredMessage".Translate(billDoer.Named("PAWN"), giftGiver);
+                    letterText = "RitualCallsUnansweredLetter".Translate(billDoer.Named("PAWN"), giftGiver);
+                    Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_NoGiftGiven);
                 }
 
             }

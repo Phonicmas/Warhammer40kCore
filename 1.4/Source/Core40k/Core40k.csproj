@@ -61,7 +61,9 @@
     <Compile Include="DefModExtension_Mutations.cs" />
     <Compile Include="DefModExtension_Geneseed.cs" />
     <Compile Include="DefModExtension_Ritual.cs" />
+    <Compile Include="DefModExtension_UntradeablePawn.cs" />
     <Compile Include="HarmonyPatch_MaxHealth.cs" />
+    <Compile Include="HarmonyPatch_NoSMSlaves.cs" />
     <Compile Include="MentalState_FriendlyDaemon.cs" />
     <Compile Include="DeathActionWorker_PinkHorror.cs" />
     <Compile Include="DeathActionWorker_Daemon.cs" />

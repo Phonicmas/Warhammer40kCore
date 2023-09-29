@@ -57,8 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core40kMod - Copy.cs" />
     <Compile Include="DefModExtension_DaemonSummon.cs" />
     <Compile Include="DefModExtension_Geneseed.cs" />
+    <Compile Include="DefModExtension_TraitAndGeneOpinion.cs" />
     <Compile Include="DefModExtension_Ritual.cs" />
     <Compile Include="DefModExtension_UntradeablePawn.cs" />
     <Compile Include="HarmonyPatch_NoSMSlaves.cs" />

@@ -19,12 +19,7 @@ namespace Core40k
             List<SkillDef> skillsScale = recipe.GetModExtension<DefModExtension_Ritual>().skillsScale;
             float skillsScaleAmount = recipe.GetModExtension<DefModExtension_Ritual>().skillsScaleAmount;
 
-            List<TraitDef> traitsIncreaseChance = recipe.GetModExtension<DefModExtension_Ritual>().traitsIncreaseChance;
-            List<TraitDef> traitsReduceChance = recipe.GetModExtension<DefModExtension_Ritual>().traitsReduceChance;
-            List<GeneDef> genesIncreaseChance = recipe.GetModExtension<DefModExtension_Ritual>().genesIncreaseChance;
-            List<GeneDef> genesDecreaseChance = recipe.GetModExtension<DefModExtension_Ritual>().genesDecreaseChance;
-
-            string giftGiver = recipe.GetModExtension<DefModExtension_Ritual>().giftGiver;
+            ChaosGods giftGiver = recipe.GetModExtension<DefModExtension_Ritual>().giftGiver;
 
             if (billDoer.genes != null)
             {
@@ -44,25 +39,26 @@ namespace Core40k
                     }
                 }
 
-                /*if (traitsIncreaseChance != null)
-                {
+                List<Trait> pawnTraits = billDoer.story.traits.allTraits;
 
+                int opinionDegree = 0;
+
+                foreach (Trait trait in pawnTraits)
+                {
+                    if (trait.def.HasModExtension<DefModExtension_TraitAndGeneOpinion>())
+                    {
+                        DefModExtension_TraitAndGeneOpinion temp = trait.def.GetModExtension<DefModExtension_TraitAndGeneOpinion>();
+                        for (int i = 0; i < temp.godOpinion.Count; i++)
+                        {
+                            if (temp.godOpinion[i] == giftGiver)
+                            {
+                                opinionDegree += temp.opinionDegree[i];
+                            }
+                        }
+                    }
                 }
 
-                if (traitsReduceChance != null)
-                {
-
-                }
-
-                if (genesIncreaseChance != null)
-                {
-
-                }
-
-                if (genesDecreaseChance != null)
-                {
-
-                }*/
+                chance += (opinionDegree * 5);
 
                 chance = (float)Math.Round(chance);
 
@@ -78,8 +74,8 @@ namespace Core40k
                 string letterText;
                 if (addAndRemoveGenes)
                 {
-                    messageText = "RitualCallsAnsweredMessage".Translate(billDoer.Named("PAWN"), giftGiver);
-                    letterText = "RitualCallsAnsweredLetter".Translate(billDoer.Named("PAWN"), giftGiver);
+                    messageText = "RitualCallsAnsweredMessage".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
+                    letterText = "RitualCallsAnsweredLetter".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
                     //Removes genes to remove
                     if (!genesToRemove.NullOrEmpty())
                     {
@@ -113,8 +109,8 @@ namespace Core40k
                 }
                 else
                 {
-                    messageText = "RitualCallsUnansweredMessage".Translate(billDoer.Named("PAWN"), giftGiver);
-                    letterText = "RitualCallsUnansweredLetter".Translate(billDoer.Named("PAWN"), giftGiver);
+                    messageText = "RitualCallsUnansweredMessage".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
+                    letterText = "RitualCallsUnansweredLetter".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
                     Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_NoGiftGiven);
                 }
 

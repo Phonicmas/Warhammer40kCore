@@ -14,17 +14,11 @@ namespace Core40k
         public List<GeneDef> givesGenesRandom;
 
 
-        public string giftGiver = "the gods";
+        public ChaosGods giftGiver = ChaosGods.Undivided;
 
 
         public List<SkillDef> skillsScale;
         public float skillsScaleAmount;
-
-        public List<TraitDef> traitsIncreaseChance;
-        public List<TraitDef> traitsReduceChance;
-
-        public List<GeneDef> genesIncreaseChance;
-        public List<GeneDef> genesDecreaseChance;
 
         public float baseChance; //Base chance given pawn has no traits, genes and has 0 in every skill
     }

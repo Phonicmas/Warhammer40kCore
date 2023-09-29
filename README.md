@@ -10,12 +10,9 @@
 
 ## Ideas
 1. Make Imperium faction use different chapter armor for different raids. (Faction Module)
-2. Mechinator stuff, servo skulls (New module)
 
 ## Fixes to do
-1. Psytrainer quest reward giving access to paths without psyker gene. (VPE thing, need to look into code and harmony fix it?) (Psycast Module)
-2. Patch for immortals mod when person is afflitced with nurgles rot (Psycast Module)
-3. Marine can show up as slaves, they shouldnt (Faction Module)
+
 
 ## New Module Ideas
 1. Chaos Module (Currently Making)

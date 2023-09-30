@@ -17,15 +17,15 @@ namespace Core40k
             switch (cg)
             {
                 case ChaosGods.Khorne:
-                    return "Khorne";
+                    return "KhorneName".Translate();
                 case ChaosGods.Tzeentch:
-                    return "Tzeentch";
+                    return "TzeentchName".Translate();
                 case ChaosGods.Slaanesh:
-                    return "Slaanesh";
+                    return "SlaaneshName".Translate();
                 case ChaosGods.Nurgle:
-                    return "Nurgle";
+                    return "NurgleName".Translate();
                 case ChaosGods.Undivided:
-                    return "the great Undivided";
+                    return "UndividedName".Translate();
                 default:
                     Log.Error("Method ChaosEnumToString() tried to convert illegal enum to string, contact Phonicmas if you see this during normal gameplay");
                     return "";

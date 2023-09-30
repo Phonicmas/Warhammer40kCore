@@ -42,12 +42,17 @@ namespace Core40k
                 List<Trait> pawnTraits = billDoer.story.traits.allTraits;
 
                 int opinionDegree = 0;
+                bool isPure = false;
 
                 foreach (Trait trait in pawnTraits)
                 {
                     if (trait.def.HasModExtension<DefModExtension_TraitAndGeneOpinion>())
                     {
                         DefModExtension_TraitAndGeneOpinion temp = trait.def.GetModExtension<DefModExtension_TraitAndGeneOpinion>();
+                        if (temp.purity)
+                        {
+                            isPure = true;
+                        }
                         for (int i = 0; i < temp.godOpinion.Count; i++)
                         {
                             if (temp.godOpinion[i] == giftGiver)
@@ -63,9 +68,12 @@ namespace Core40k
                 chance = (float)Math.Round(chance);
 
                 Random rand = new Random();
+
+                chance += rand.Next(-15, 15);
+
                 int randNum = rand.Next(100);
 
-                if (randNum <= chance)
+                if (!isPure && randNum <= chance)
                 {
                     addAndRemoveGenes = true;
                 }

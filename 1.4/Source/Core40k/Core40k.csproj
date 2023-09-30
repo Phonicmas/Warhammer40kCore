@@ -57,7 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core40kMod - Copy.cs" />
+    <Compile Include="ChaosGodsEnum.cs" />
     <Compile Include="DefModExtension_DaemonSummon.cs" />
     <Compile Include="DefModExtension_Geneseed.cs" />
     <Compile Include="DefModExtension_TraitAndGeneOpinion.cs" />

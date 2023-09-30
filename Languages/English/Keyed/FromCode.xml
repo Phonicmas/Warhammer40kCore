@@ -12,4 +12,10 @@
   <RitualCallsAnsweredLetter>{0} calls were answered by {1}</RitualCallsAnsweredLetter>
   <RitualCallsUnansweredLetter>{0} calls were left unanswered by {1}</RitualCallsUnansweredLetter>
 
+  <TzeentchName>Tzeentch</TzeentchName>
+  <KhorneName>Khorne</KhorneName>
+  <NurgleName>Nurgle</NurgleName>
+  <SlaaneshName>Slaanesh</SlaaneshName>
+  <UndividedName>the great Undivided</UndividedName>
+
 </LanguageData>

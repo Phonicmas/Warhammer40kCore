@@ -26,7 +26,7 @@ namespace Core40k
 
             listingStandard.Label("randomChanceRitual".Translate(settings.randomChanceRitualPositive, settings.randomChanceRitualNegative));
             settings.randomChanceRitualPositive = (int)listingStandard.Slider(settings.randomChanceRitualPositive, 0, 100);
-            settings.randomChanceRitualNegative = (int)listingStandard.Slider(settings.randomChanceRitualNegative, -100, 0);
+            settings.randomChanceRitualNegative = (int)listingStandard.Slider(settings.randomChanceRitualNegative, 0, 100);
 
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);

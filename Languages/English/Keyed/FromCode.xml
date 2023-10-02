@@ -3,7 +3,7 @@
 
   <ModSettingsNameCore>Warhammer 40k - Core</ModSettingsNameCore>
 
-  <randomChanceRitual>The sucess chance of rituals will have an added random offset between {1}% and +{0}%</randomChanceRitual>
+  <randomChanceRitual>The sucess chance of rituals will have an added random offset between -{1}% and +{0}%</randomChanceRitual>
 
   <TheGods>the great Undivided</TheGods>
 

@@ -71,7 +71,7 @@ namespace Core40k
 
                 Core40kSettings modSettings = LoadedModManager.GetMod<Core40kMod>().GetSettings<Core40kSettings>();
 
-                chance += rand.Next(modSettings.randomChanceRitualNegative, modSettings.randomChanceRitualPositive);
+                chance += rand.Next(-1*modSettings.randomChanceRitualNegative, modSettings.randomChanceRitualPositive);
 
                 int randNum = rand.Next(100);
 

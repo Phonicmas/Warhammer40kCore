@@ -4,6 +4,7 @@ namespace Core40k
 {
     public enum ChaosGods
     {
+        None,
         Khorne,
         Tzeentch,
         Slaanesh,

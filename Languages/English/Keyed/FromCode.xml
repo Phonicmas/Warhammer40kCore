@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <ModSettingsNameCore>Warhammer 40k - Core</ModSettingsNameCore>
+
+  <randomChanceRitual>The sucess chance of rituals will have an added random offset between {1}% and +{0}%</randomChanceRitual>
+
   <TheGods>the great Undivided</TheGods>
 
   <MayNotHaveGene>{0} may not have the gene: {1}.</MayNotHaveGene>

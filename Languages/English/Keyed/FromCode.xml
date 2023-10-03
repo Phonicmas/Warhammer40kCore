@@ -5,6 +5,10 @@
 
   <randomChanceRitual>The sucess chance of rituals will have an added random offset between -{1}% and +{0}%</randomChanceRitual>
 
+  <offsetPerHatedOrLovedGene>The added offset, when pawn has a genes, that the god of the ritual has an opinion on. (Opinion ranges from -1 to 1, so an offset of 2 will make disliked genes give -2% succes chance and liked genes will give +2% succes chance).\n Current offset for genes: {0}</offsetPerHatedOrLovedGene>
+
+  <offsetPerHatedOrLovedTrait>The added offset, when pawn has a trait, that the god of the ritual has an opinion on. (Opinion ranges from -1 to 1, so an offset of 2 will make disliked trait give -2% succes chance and liked trait will give +2% succes chance).\n Current offset for traits: {0}</offsetPerHatedOrLovedTrait>
+
   <TheGods>the great Undivided</TheGods>
 
   <MayNotHaveGene>{0} may not have the gene: {1}.</MayNotHaveGene>

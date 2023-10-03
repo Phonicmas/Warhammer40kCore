@@ -23,7 +23,6 @@ namespace Core40k
 
             if (billDoer.genes != null)
             {
-                bool addAndRemoveGenes = false;
                 float chance = recipe.GetModExtension<DefModExtension_Ritual>().baseChance;
 
                 if (skillsScale != null)
@@ -39,11 +38,11 @@ namespace Core40k
                     }
                 }
 
+                int opinionDegreeTraits = 0;
+                int opinionDegreeGenes = 0;
+
                 List<Trait> pawnTraits = billDoer.story.traits.allTraits;
-
-                int opinionDegree = 0;
-                bool isPure = false;
-
+                //Checks the traits of the pawns for thei influence on the outcome of the ritual.
                 foreach (Trait trait in pawnTraits)
                 {
                     if (trait.def.HasModExtension<DefModExtension_TraitAndGeneOpinion>())
@@ -51,80 +50,122 @@ namespace Core40k
                         DefModExtension_TraitAndGeneOpinion temp = trait.def.GetModExtension<DefModExtension_TraitAndGeneOpinion>();
                         if (temp.purity)
                         {
-                            isPure = true;
+                            UnansweredCall(billDoer, giftGiver);
+                            return;
+                        }
+                        for (int i = 0; i < temp.godWontGift.Count; i++)
+                        {
+                            if (temp.godWontGift[i] == giftGiver)
+                            {
+                                UnansweredCall(billDoer, giftGiver);
+                                return;
+                            }
                         }
                         for (int i = 0; i < temp.godOpinion.Count; i++)
                         {
                             if (temp.godOpinion[i] == giftGiver)
                             {
-                                opinionDegree += temp.opinionDegree[i];
+                                int a = 0;
+                                if (trait.Degree != 0)
+                                {
+                                    a = temp.opinionDegreeForTraitDegrees[i].TryGetValue(trait.Degree);
+                                }
+                                else
+                                {
+                                    a = temp.opinionDegree[i];
+                                }
+                                opinionDegreeTraits += a;
                             }
                         }
                     }
                 }
 
-                chance += (opinionDegree * 5);
 
-                chance = (float)Math.Round(chance);
+                List<Gene> pawnGenes = billDoer.genes.GenesListForReading;
+                //Checks the genes of the pawns for thei influence on the outcome of the ritual.
+                foreach (Gene gene in pawnGenes)
+                {
+                    if (gene.def.HasModExtension<DefModExtension_TraitAndGeneOpinion>())
+                    {
+                        DefModExtension_TraitAndGeneOpinion temp = gene.def.GetModExtension<DefModExtension_TraitAndGeneOpinion>();
+                        if (temp.purity)
+                        {
+                            UnansweredCall(billDoer, giftGiver);
+                            return;
+                        }
+                        for (int i = 0; i < temp.godWontGift.Count; i++)
+                        {
+                            if (temp.godWontGift[i] == giftGiver)
+                            {
+                                UnansweredCall(billDoer, giftGiver);
+                                return;
+                            }
+                        }
+                        for (int i = 0; i < temp.godOpinion.Count; i++)
+                        {
+                            if (temp.godOpinion[i] == giftGiver)
+                            {
+                                opinionDegreeGenes += temp.opinionDegree[i];
+                            }
+                        }
+                    }
+                }
 
                 Random rand = new Random();
-
                 Core40kSettings modSettings = LoadedModManager.GetMod<Core40kMod>().GetSettings<Core40kSettings>();
 
+                chance += opinionDegreeTraits * modSettings.offsetPerHatedOrLovedTrait;
+                chance += opinionDegreeGenes * modSettings.offsetPerHatedOrLovedGene;
+                chance = (float)Math.Round(chance);
                 chance += rand.Next(-1*modSettings.randomChanceRitualNegative, modSettings.randomChanceRitualPositive);
 
                 int randNum = rand.Next(100);
 
-                if (!isPure && randNum <= chance)
+                if (!(randNum <= chance))
                 {
-                    addAndRemoveGenes = true;
+                    return;
                 }
 
-                string messageText;
-                string letterText;
-                if (addAndRemoveGenes)
+                string messageText = "RitualCallsAnsweredMessage".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
+                string letterText = "RitualCallsAnsweredLetter".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
+                //Removes genes to remove
+                if (!genesToRemove.NullOrEmpty())
                 {
-                    messageText = "RitualCallsAnsweredMessage".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
-                    letterText = "RitualCallsAnsweredLetter".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
-                    //Removes genes to remove
-                    if (!genesToRemove.NullOrEmpty())
+                    List<Gene> removeThese = new List<Gene>();
+                    foreach (Gene gene in billDoer.genes.Xenogenes)
                     {
-                        List<Gene> removeThese = new List<Gene>();
-                        foreach (Gene gene in billDoer.genes.Xenogenes)
+                        if (genesToRemove.Contains(gene.def))
                         {
-                            if (genesToRemove.Contains(gene.def))
-                            {
-                                removeThese.Add(gene);
-                            }
-                        }
-                        foreach (Gene gene in removeThese)
-                        {
-                            billDoer.genes.RemoveGene(gene);
+                            removeThese.Add(gene);
                         }
                     }
-                    string grantedGiftsText = "\n";
-                    //Adds genes to give
-                    if (!genesToGive.NullOrEmpty())
+                    foreach (Gene gene in removeThese)
                     {
-                        foreach (GeneDef gene in genesToGive)
+                        billDoer.genes.RemoveGene(gene);
+                    }
+                }
+                string grantedGiftsText = "\n";
+                //Adds genes to give
+                if (!genesToGive.NullOrEmpty())
+                {
+                    foreach (GeneDef gene in genesToGive)
+                    {
+                        if (gene != null && !billDoer.genes.HasGene(gene))
                         {
-                            if (gene != null && !billDoer.genes.HasGene(gene))
-                            {
-                                billDoer.genes.AddGene(gene, true);
-                                grantedGiftsText = grantedGiftsText + "\n- " + gene.label;
-                            }
+                            billDoer.genes.AddGene(gene, true);
+                            grantedGiftsText = grantedGiftsText + "\n- " + gene.label;
                         }
                     }
-                    Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_GiftGiven);
                 }
-                else
-                {
-                    messageText = "RitualCallsUnansweredMessage".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
-                    letterText = "RitualCallsUnansweredLetter".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
-                    Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_NoGiftGiven);
-                }
-
+                Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_GiftGiven);
             }
+        }
+
+        private void UnansweredCall(Pawn billDoer, ChaosGods giftGiver)
+        {
+            string messageText = "RitualCallsUnansweredMessage".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
+            string letterText = "RitualCallsUnansweredLetter".Translate(billDoer.Named("PAWN"), ChaosEnumToString.Convert(giftGiver));
+            Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_NoGiftGiven);
         }
 
     }

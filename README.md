@@ -10,6 +10,7 @@
 
 ## Ideas
 1. Make Imperium faction use different chapter armor for different raids. (Faction Module)
+2. Make Mutations module check if pawns is daemon prince, and if so make random mutations not be detrimental.
 
 ## Fixes to do
 

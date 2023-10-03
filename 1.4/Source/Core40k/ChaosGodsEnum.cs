@@ -32,5 +32,25 @@ namespace Core40k
                     return "";
             }
         }
+
+        public static string GetLetterTitle(ChaosGods cg)
+        {
+            switch (cg)
+            {
+                case ChaosGods.Khorne:
+                    return "KhorneLetterTitle".Translate();
+                case ChaosGods.Tzeentch:
+                    return "TzeentchLetterTitle".Translate();
+                case ChaosGods.Slaanesh:
+                    return "SlaaneshLetterTitle".Translate();
+                case ChaosGods.Nurgle:
+                    return "NurgleLetterTitle".Translate();
+                case ChaosGods.Undivided:
+                    return "UndividedLetterTitle".Translate();
+                default:
+                    Log.Error("Method ChaosEnumToString() tried to convert illegal enum to string, contact Phonicmas if you see this during normal gameplay");
+                    return "";
+            }
+        }
     }
 }

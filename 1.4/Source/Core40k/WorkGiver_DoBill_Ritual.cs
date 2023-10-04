@@ -21,32 +21,33 @@ namespace Core40k
                 {
                     return null;
                 }
+                if (pawn.genes == null || pawn.story == null)
+                {
+                    return null;
+                }
                 //Get info from modExtension
                 List<GeneDef> forbiddenGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().forbiddenGenes;
                 List<GeneDef> requiredGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().requiredGenes;
 
-                if (pawn.genes != null)
+                //Checks if pawn has any genes its not allowed to have
+                if (!forbiddenGenes.NullOrEmpty())
                 {
-                    //Checks if pawn has any genes its not allowed to have
-                    if (!forbiddenGenes.NullOrEmpty())
+                    foreach (GeneDef gene in forbiddenGenes)
                     {
-                        foreach (GeneDef gene in forbiddenGenes)
+                        if (gene != null && pawn.genes.HasGene(gene))
                         {
-                            if (gene != null && pawn.genes.HasGene(gene))
-                            {
-                                return null;
-                            }
+                            return null;
                         }
                     }
-                    //Checks if pawn has any genes it needs to have
-                    if (!requiredGenes.NullOrEmpty())
+                }
+                //Checks if pawn has any genes it needs to have
+                if (!requiredGenes.NullOrEmpty())
+                {
+                    foreach (GeneDef gene in requiredGenes)
                     {
-                        foreach (GeneDef gene in requiredGenes)
+                        if (gene != null && !pawn.genes.HasGene(gene))
                         {
-                            if (gene != null && !pawn.genes.HasGene(gene))
-                            {
-                                return null;
-                            }
+                            return null;
                         }
                     }
                 }
@@ -67,33 +68,34 @@ namespace Core40k
                 {
                     return false;
                 }
+                if (pawn.genes == null || pawn.story == null)
+                {
+                    return false;
+                }
                 //Get info from modExtension
                 List<GeneDef> forbiddenGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().forbiddenGenes;
                 List<GeneDef> requiredGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().requiredGenes;
-                if (pawn.genes != null)
+                //Checks if pawn has any genes its not allowed to have
+                if (!forbiddenGenes.NullOrEmpty())
                 {
-                    //Checks if pawn has any genes its not allowed to have
-                    if (!forbiddenGenes.NullOrEmpty())
+                    foreach (GeneDef gene in forbiddenGenes)
                     {
-                        foreach (GeneDef gene in forbiddenGenes)
+                        if (gene != null && pawn.genes.HasGene(gene))
                         {
-                            if (gene != null && pawn.genes.HasGene(gene))
-                            {
-                                JobFailReason.Is("MayNotHaveGene".Translate(pawn.Named("PAWN"), gene.label));
-                                return false;
-                            }
+                            JobFailReason.Is("MayNotHaveGene".Translate(pawn.Named("PAWN"), gene.label));
+                            return false;
                         }
                     }
-                    //Checks if pawn has any genes it needs to have
-                    if (!requiredGenes.NullOrEmpty())
+                }
+                //Checks if pawn has any genes it needs to have
+                if (!requiredGenes.NullOrEmpty())
+                {
+                    foreach (GeneDef gene in requiredGenes)
                     {
-                        foreach (GeneDef gene in requiredGenes)
+                        if (gene != null && !pawn.genes.HasGene(gene))
                         {
-                            if (gene != null && !pawn.genes.HasGene(gene))
-                            {
-                                JobFailReason.Is("DoesNotHaveGene".Translate(pawn.Named("PAWN"), gene.label));
-                                return false;
-                            }
+                            JobFailReason.Is("DoesNotHaveGene".Translate(pawn.Named("PAWN"), gene.label));
+                            return false;
                         }
                     }
                 }

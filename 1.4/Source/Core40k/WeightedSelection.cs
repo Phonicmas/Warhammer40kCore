@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Verse;
 
 namespace Core40k
 {
@@ -33,6 +34,27 @@ namespace Core40k
                 }
             }
             return default(T); //should only happen when there are no entries
+        }
+
+        public T GetRandomUnique()
+        {
+            double r = rand.NextDouble() * accumulatedWeight;
+
+            foreach (Entry entry in entries)
+            {
+                if (entry.accumulatedWeight >= r)
+                {
+                    Entry unique = new Entry{ item = entry.item, accumulatedWeight = entry.accumulatedWeight };
+                    entries.Remove(entry);
+                    return unique.item;
+                }
+            }
+            return default(T); //should only happen when there are no entries
+        }
+
+        public bool NoEntriesOrNull()
+        {
+            return entries.NullOrEmpty();
         }
     }
 }   

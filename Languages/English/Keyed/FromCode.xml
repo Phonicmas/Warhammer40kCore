@@ -14,11 +14,13 @@
   <MayNotHaveGene>{0} may not have the gene: {1}.</MayNotHaveGene>
   <DoesNotHaveGene>{0} does not have required gene: {1}.</DoesNotHaveGene>
 
-  <RitualCallsAnsweredMessage>{0} pleaded with {1}, and was granted the following gifts:</RitualCallsAnsweredMessage>
+  <RitualCallsUnansweredLetter>{0} calls were left unanswered by {1}</RitualCallsUnansweredLetter>
   <RitualCallsUnansweredMessage>{0} tried to plead with {1}, but was left unanswered.</RitualCallsUnansweredMessage>
 
+  <PawnIsPureReason>{0} tried to plead with {1}, but {1} does not deal with pure pawns</PawnIsPureReason>
+
   <RitualCallsAnsweredLetter>{0} calls were answered by {1}</RitualCallsAnsweredLetter>
-  <RitualCallsUnansweredLetter>{0} calls were left unanswered by {1}</RitualCallsUnansweredLetter>
+  <RitualCallsAnsweredMessage>{0} pleaded with {1}, and was granted the following gifts:</RitualCallsAnsweredMessage>
 
   <TzeentchName>Tzeentch</TzeentchName>
   <KhorneName>Khorne</KhorneName>

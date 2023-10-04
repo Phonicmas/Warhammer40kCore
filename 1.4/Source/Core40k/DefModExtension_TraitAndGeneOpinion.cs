@@ -1,5 +1,4 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 
 namespace Core40k
@@ -16,6 +15,9 @@ namespace Core40k
 
         //This is a list of the degree for traits with different degrees, works similar to "opinionDegree". First field is degree of trait, second is degree of opinion
         public List<Dictionary<int, int>> opinionDegreeForTraitDegrees = new List<Dictionary<int, int>>();
+
+        //This is a list of the gods that will always give beneficial gifts when pawn has said gene/trait and included god is giving gifts.
+        public List<ChaosGods> makesGodGiveBeneficial = new List<ChaosGods>();
 
         //If a gene or trait has this, said pawn can NEVER recieve gifts from chaos through rituals in GENES module or mental breaks in CHAOS module.
         public bool purity = false;

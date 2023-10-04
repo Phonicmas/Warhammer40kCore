@@ -18,6 +18,10 @@ namespace Core40k
 				bool addThing = true;
 				if (thing is Pawn pawn)
 				{
+					if (pawn.genes == null)
+					{
+						continue;
+					}
                     if (pawn.genes.Xenotype.HasModExtension<DefModExtension_UntradeablePawn>())
 					{
 						addThing = false;
@@ -27,6 +31,11 @@ namespace Core40k
 				{
 					newResult.Add(thing);
 				}
+			}
+
+			if (newResult.NullOrEmpty())
+			{
+				return __result;
 			}
 
 			return newResult;

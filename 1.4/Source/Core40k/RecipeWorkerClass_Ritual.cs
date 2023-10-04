@@ -11,21 +11,23 @@ namespace Core40k
         {
             if (recipe.GetModExtension<DefModExtension_Ritual>() == null)
             {
+                UnansweredCall(billDoer, ChaosGods.None);
                 return;
             }
-            List<GeneDef> genesToGive = recipe.GetModExtension<DefModExtension_Ritual>().givesGenes;
-            List<GeneDef> genesToRemove = recipe.GetModExtension<DefModExtension_Ritual>().removesGenes;
-
-            List<SkillDef> skillsScale = recipe.GetModExtension<DefModExtension_Ritual>().skillsScale;
-            float skillsScaleAmount = recipe.GetModExtension<DefModExtension_Ritual>().skillsScaleAmount;
-
-            ChaosGods giftGiver = recipe.GetModExtension<DefModExtension_Ritual>().giftGiver;
 
             if (billDoer.genes != null)
             {
+                List<GeneDef> genesToGive = recipe.GetModExtension<DefModExtension_Ritual>().givesGenes;
+                List<GeneDef> genesToRemove = recipe.GetModExtension<DefModExtension_Ritual>().removesGenes;
+
+                List<SkillDef> skillsScale = recipe.GetModExtension<DefModExtension_Ritual>().skillsScale;
+                float skillsScaleAmount = recipe.GetModExtension<DefModExtension_Ritual>().skillsScaleAmount;
+
+                ChaosGods giftGiver = recipe.GetModExtension<DefModExtension_Ritual>().giftGiver;
+
                 float chance = recipe.GetModExtension<DefModExtension_Ritual>().baseChance;
 
-                if (skillsScale != null)
+                if (!skillsScale.NullOrEmpty())
                 {
                     SkillRecord skillRecord;
                     foreach (SkillDef skill in skillsScale)
@@ -123,6 +125,7 @@ namespace Core40k
 
                 if (!(randNum <= chance))
                 {
+                    UnansweredCall(billDoer, giftGiver);
                     return;
                 }
 

@@ -9,12 +9,6 @@ namespace Core40k
     {
         public override Job JobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
-            if (base.JobOnThing(pawn, thing, forced) == null)
-            {
-                return null;
-            }
-
-            //Check if pawn would have a job by vanilla standards
             if (thing is IBillGiver billGiver)
             {
                 //Check is there is any recipe at all
@@ -56,18 +50,12 @@ namespace Core40k
                         }
                     }
                 }
-                return base.JobOnThing(pawn, thing, forced);
             }
-            return null;
+            return base.JobOnThing(pawn, thing, forced);
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (!base.HasJobOnThing(pawn, t, forced))
-            {
-                return false;
-            }
-
             if (t is IBillGiver billGiver)
             {
                 BillStack billStack = billGiver.BillStack;
@@ -79,11 +67,9 @@ namespace Core40k
                 {
                     return false;
                 }
-
                 //Get info from modExtension
                 List<GeneDef> forbiddenGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().forbiddenGenes;
                 List<GeneDef> requiredGenes = billStack.FirstShouldDoNow.recipe.GetModExtension<DefModExtension_Ritual>().requiredGenes;
-
                 if (pawn.genes != null)
                 {
                     //Checks if pawn has any genes its not allowed to have
@@ -97,15 +83,6 @@ namespace Core40k
                                 return false;
                             }
                         }
-
-                        /*for (int i = 0; i < forbiddenGenes.Count; i++)
-                        {
-                            if (forbiddenGenes[i] != null && pawn.genes.HasGene(forbiddenGenes[i]))
-                            {
-                                JobFailReason.Is("MayNotHaveGene".Translate(pawn.Named("PAWN"), forbiddenGenes[i].label));
-                                return false;
-                            }
-                        }*/
                     }
                     //Checks if pawn has any genes it needs to have
                     if (!requiredGenes.NullOrEmpty())
@@ -118,20 +95,10 @@ namespace Core40k
                                 return false;
                             }
                         }
-
-                        /*for (int i = 0; i < requiredGenes.Count; i++)
-                        {
-                            if (requiredGenes[i] != null && !pawn.genes.HasGene(requiredGenes[i]))
-                            {
-                                JobFailReason.Is("DoesNotHaveGene".Translate(pawn.Named("PAWN"), requiredGenes[i].label));
-                                return false;
-                            }
-                        }*/
                     }
                 }
-                return true;
             }
-            return false;
+            return base.HasJobOnThing(pawn, t, forced);
         }
     }
 

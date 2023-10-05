@@ -28,6 +28,8 @@ namespace Core40k
             settings.randomChanceRitualPositive = (int)listingStandard.Slider(settings.randomChanceRitualPositive, 0, 100);
             settings.randomChanceRitualNegative = (int)listingStandard.Slider(settings.randomChanceRitualNegative, 0, 100);
 
+
+            listingStandard.Label("OffsetExplanation".Translate());
             listingStandard.Label("offsetPerHatedOrLovedTrait".Translate(settings.offsetPerHatedOrLovedTrait));
             settings.offsetPerHatedOrLovedTrait = (int)listingStandard.Slider(settings.offsetPerHatedOrLovedTrait, 0, 20);
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Verse;
+using static Core40k.Core40kUtils;
 
 namespace Core40k
 {
@@ -11,63 +12,45 @@ namespace Core40k
         {
             if (recipe.GetModExtension<DefModExtension_Ritual>() == null)
             {
-                Core40kUtils.UnansweredCall(billDoer, ChaosGods.None, false);
+                UnansweredCall(billDoer, ChaosGods.None, false);
                 return;
             }
 
-            ChaosGods giftGiver = recipe.GetModExtension<DefModExtension_Ritual>().giftGiver;
+            DefModExtension_Ritual defMod = recipe.GetModExtension<DefModExtension_Ritual>();
+            ChaosGods giftGiver = defMod.giftGiver;
 
-            if (Core40kUtils.PawnIsPure(billDoer))
+            (Dictionary<ChaosGods, GeneAndTraitInfo>, bool) geneAndTraitInfo = GetGeneAndTraitInfo(billDoer);
+
+            //Pawn is pure
+            if (geneAndTraitInfo.Item2)
             {
-                Core40kUtils.UnansweredCall(billDoer, giftGiver, true);
+                UnansweredCall(billDoer, giftGiver, true);
                 return;
             }
 
-            List<GeneDef> genesToGive = recipe.GetModExtension<DefModExtension_Ritual>().givesGenes;
-            List<GeneDef> genesToRemove = recipe.GetModExtension<DefModExtension_Ritual>().removesGenes;
-
-            List<SkillDef> skillsScale = recipe.GetModExtension<DefModExtension_Ritual>().skillsScale;
-            float skillsScaleAmount = recipe.GetModExtension<DefModExtension_Ritual>().skillsScaleAmount;
-
-            float chance = recipe.GetModExtension<DefModExtension_Ritual>().baseChance;
-
-            if (!skillsScale.NullOrEmpty())
+            //Gift giver wont give pawn gift
+            if (geneAndTraitInfo.Item1.TryGetValue(giftGiver).wontGiveGift)
             {
-                SkillRecord skillRecord;
-                foreach (SkillDef skill in skillsScale)
-                {
-                    skillRecord = billDoer.skills.GetSkill(skill);
-                    if (skillRecord != null)
-                    {
-                        chance += skillRecord.GetLevel() * skillsScaleAmount;
-                    }
-                }
-            }
-
-            ((int, int), (bool, bool)) opinions = Core40kUtils.GetTraitAndGeneOpinion(billDoer, giftGiver);
-
-            if (opinions.Item2.Item1)
-            {
-                Core40kUtils.UnansweredCall(billDoer, giftGiver, false);
+                UnansweredCall(billDoer, giftGiver, false);
                 return;
             }
 
-            int opinionDegreeTraits = opinions.Item1.Item1;
-            int opinionDegreeGenes = opinions.Item1.Item2;
+            List<GeneDef> genesToGive = defMod.givesGenes;
+            List<GeneDef> genesToRemove = defMod.removesGenes;
 
             Random rand = new Random();
             Core40kSettings modSettings = LoadedModManager.GetMod<Core40kMod>().GetSettings<Core40kSettings>();
 
-            chance += opinionDegreeTraits * modSettings.offsetPerHatedOrLovedTrait;
-            chance += opinionDegreeGenes * modSettings.offsetPerHatedOrLovedGene;
-            chance = (float)Math.Round(chance);
+            float chance = defMod.baseChance;
             chance += rand.Next(-1 * modSettings.randomChanceRitualNegative, modSettings.randomChanceRitualPositive);
+            chance = GetOpinionBasedOnTraitsAndGenes(chance, giftGiver, geneAndTraitInfo.Item1);
+            chance = GetOpinionBasedOnSkills(chance, billDoer, ChaosEnumUtils.GetGodAssociatedSkills(giftGiver), defMod.skillsScaleAmount);
+            chance = (float)Math.Round(chance);
 
             int randNum = rand.Next(100);
-
             if (!(randNum <= chance))
             {
-                Core40kUtils.UnansweredCall(billDoer, giftGiver, false);
+                UnansweredCall(billDoer, giftGiver, false);
                 return;
             }
 
@@ -101,7 +84,7 @@ namespace Core40k
                 }
             }
 
-            Core40kUtils.AnsweredCall(billDoer, giftGiver, grantedGiftsText);
+            AnsweredCall(billDoer, giftGiver, grantedGiftsText);
         }
     }
 

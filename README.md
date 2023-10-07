@@ -10,18 +10,17 @@
 
 ## Ideas
 1. Make Imperium faction use different chapter armor for different raids. (Faction Module)
-2. Make Mutations module check if pawns is daemon prince, and if so make random mutations not be detrimental.
 
 ## Fixes to do
 
 
 ## New Module Ideas
 1. Chaos Module (Currently Making)
-    1. Make more chaos genes, like tentacle of tzeentch or mouth of nurgle, make them work on the ritual system. Maybe a random chance to get a beneficial mutation or a bad one.
-    2. Nervous breakdown may cause chaos to notice and offer "gifts"
+
 
 2. Techpriest Module
     1. Make new mechinator machines such as servo skulls
 
 3. Ideology module
     1. Expand on current ideology for faction module. Essentially ripping it out and making a new mod out of it. This would include new roles such as apothecary, whom is the only one who can do mecidal procedure to remove geneseed after they've grown. Also should be able to harvest geneseeds from dead marines.
+    2. Make a meme for accepting chaos.

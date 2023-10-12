@@ -15,12 +15,12 @@
 
 
 ## New Module Ideas
-1. Chaos Module (Currently Making)
+1. Mutations Module (Currently Making)
 
 
 2. Techpriest Module
     1. Make new mechinator machines such as servo skulls
 
 3. Ideology module
-    1. Expand on current ideology for faction module. Essentially ripping it out and making a new mod out of it. This would include new roles such as apothecary, whom is the only one who can do mecidal procedure to remove geneseed after they've grown. Also should be able to harvest geneseeds from dead marines.
-    2. Make a meme for accepting chaos.
+    1. Make a meme for accepting chaos. (If mutation is installed)
+    2. Give all roles some abilites of some kind beyond vanilla

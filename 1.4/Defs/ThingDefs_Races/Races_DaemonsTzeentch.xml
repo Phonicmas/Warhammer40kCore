@@ -183,6 +183,7 @@
         <weaponTags>
             <li>PinkHorror</li>
         </weaponTags>
+        <destroyGearOnDrop>true</destroyGearOnDrop>
     </PawnKindDef>
 
 

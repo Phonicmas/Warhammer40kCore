@@ -97,6 +97,7 @@
         <weaponTags>
             <li>Plaguebearer</li>
         </weaponTags>
+        <destroyGearOnDrop>true</destroyGearOnDrop>
     </PawnKindDef>
 
     <PawnKindDef ParentName="AnimalKindBase">
@@ -119,6 +120,7 @@
         <weaponTags>
             <li>Plaguebearer</li>
         </weaponTags>
+        <destroyGearOnDrop>true</destroyGearOnDrop>
     </PawnKindDef>
 
 

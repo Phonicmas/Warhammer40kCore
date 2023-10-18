@@ -163,13 +163,10 @@
     </ThingDef>
 
 
-    <PawnKindDef ParentName="AnimalKindBase">
+    <PawnKindDef ParentName="BEWH_DaemonSummonedBase">
         <defName>BEWH_SummonedPinkHorror</defName>
         <label>pink horror</label>
         <race>BEWH_SummonedPinkHorror</race>
-        <combatPower>100</combatPower>
-        <canArriveManhunter>false</canArriveManhunter>
-        <ecoSystemWeight>1</ecoSystemWeight>
         <lifeStages>
             <li>
                 <bodyGraphicData>
@@ -179,11 +176,9 @@
                 </bodyGraphicData>
             </li>
         </lifeStages>
-        <weaponMoney>9999~9999</weaponMoney>
         <weaponTags>
             <li>PinkHorror</li>
         </weaponTags>
-        <destroyGearOnDrop>true</destroyGearOnDrop>
     </PawnKindDef>
 
 

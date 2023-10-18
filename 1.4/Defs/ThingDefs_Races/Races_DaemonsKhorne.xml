@@ -70,13 +70,10 @@
     </ThingDef>
 
 
-    <PawnKindDef ParentName="AnimalKindBase">
+    <PawnKindDef ParentName="BEWH_DaemonSummonedBase">
         <defName>BEWH_SummonedBloodletter</defName>
         <label>bloodletter</label>
         <race>BEWH_SummonedBloodletter</race>
-        <combatPower>100</combatPower>
-        <canArriveManhunter>false</canArriveManhunter>
-        <ecoSystemWeight>1</ecoSystemWeight>
         <lifeStages>
             <li>
                 <bodyGraphicData>
@@ -86,11 +83,9 @@
                 </bodyGraphicData>
             </li>
         </lifeStages>
-        <weaponMoney>9999~9999</weaponMoney>
         <weaponTags>
             <li>Bloodletter</li>
         </weaponTags>
-        <destroyGearOnDrop>true</destroyGearOnDrop>
     </PawnKindDef>
 
 

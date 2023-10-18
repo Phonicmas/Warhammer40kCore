@@ -82,4 +82,13 @@
     </ThingDef>
 
 
+    <PawnKindDef ParentName="AnimalKindBase" Name="BEWH_DaemonSummonedBase" Abstract="True">
+        <combatPower>100</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1</ecoSystemWeight>
+        <weaponMoney>9999~9999</weaponMoney>
+        <destroyGearOnDrop>true</destroyGearOnDrop>
+    </PawnKindDef>
+
+
 </Defs>

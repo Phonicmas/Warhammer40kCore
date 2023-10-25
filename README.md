@@ -22,5 +22,4 @@
     1. Make new mechinator machines such as servo skulls
 
 3. Ideology module
-    1. Make a meme for accepting chaos. (If mutation is installed)
-    2. Give all roles some abilites of some kind beyond vanilla
+    1. Give all roles some abilites of some kind beyond vanilla

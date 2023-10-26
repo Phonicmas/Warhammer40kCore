@@ -49,6 +49,8 @@ namespace Core40k
         {
             switch (cg)
             {
+                case ChaosGods.None:
+                    return "NoneLetterTitle".Translate();
                 case ChaosGods.Khorne:
                     return "KhorneLetterTitle".Translate();
                 case ChaosGods.Tzeentch:

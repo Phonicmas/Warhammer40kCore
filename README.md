@@ -9,17 +9,10 @@
 3. Special effect for daemon ressurection and summoning. (Genes and Psycast Module)
 
 ## Ideas
-1. Make Imperium faction use different chapter armor for different raids. (Faction Module)
 
 ## Fixes to do
 
 
 ## New Module Ideas
-1. Mutations Module (Currently Making)
-
-
-2. Techpriest Module
+1. Techpriest Module
     1. Make new mechinator machines such as servo skulls
-
-3. Ideology module
-    1. Give all roles some abilites of some kind beyond vanilla

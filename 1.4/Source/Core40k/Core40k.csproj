@@ -61,6 +61,7 @@
     <Compile Include="Core40kModUtils.cs" />
     <Compile Include="Core40kModSettings.cs" />
     <Compile Include="DefModExtension_DaemonSummon.cs" />
+    <Compile Include="HarmonyPatch_NoDaemonNotification.cs" />
     <Compile Include="WeightedSelection.cs" />
     <Compile Include="DefModExtension_Geneseed.cs" />
     <Compile Include="DefModExtension_TraitAndGeneOpinion.cs" />

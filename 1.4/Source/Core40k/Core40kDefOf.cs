@@ -9,6 +9,9 @@ namespace Core40k
         public static DamageDef BEWH_WarpFlame;
 
         public static PawnKindDef BEWH_SummonedBlueHorror;
+        public static PawnKindDef BEWH_SummonedBloodletter;
+        public static PawnKindDef BEWH_Plaguebearer;
+        public static PawnKindDef BEWH_SummonedDaemonette;
 
         public static LetterDef BEWH_GiftGiven;
         public static LetterDef BEWH_NoGiftGiven;

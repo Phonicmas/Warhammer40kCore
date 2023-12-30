@@ -12,7 +12,7 @@ namespace Core40k
     {
         public static void Postfix(ref bool __result, Pawn p)
         {
-            if (__result && (p.kindDef == Core40kDefOf.BEWH_Plaguebearer || p.kindDef == Core40kDefOf.BEWH_SummonedBloodletter || p.kindDef == Core40kDefOf.BEWH_SummonedBlueHorror || p.kindDef == Core40kDefOf.BEWH_SummonedDaemonette))
+            if (__result && (p.kindDef == Core40kDefOf.BEWH_SummonedPlaguebearer || p.kindDef == Core40kDefOf.BEWH_SummonedBloodletter || p.kindDef == Core40kDefOf.BEWH_SummonedPinkHorror || p.kindDef == Core40kDefOf.BEWH_SummonedBlueHorror || p.kindDef == Core40kDefOf.BEWH_SummonedDaemonette))
             {
                 __result = false;
             }

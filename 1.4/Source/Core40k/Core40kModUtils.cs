@@ -14,6 +14,7 @@ namespace Core40k
             public int opinionGene;
             public bool willGiveBeneficial;
             public bool wontGiveGift;
+            public Pawn ownerPawn;
         }
 
         public struct GodOpinion
@@ -48,17 +49,12 @@ namespace Core40k
             return t;
         }
 
-        public static (Dictionary<ChaosGods, GeneAndTraitInfo>, bool) GetGeneAndTraitInfo(Pawn pawn)
+        public static GeneAndTraitInfo GetGeneAndTraitInfo(Pawn pawn, ChaosGods god)
         {
-            Dictionary<ChaosGods, GeneAndTraitInfo> geneAndTraitInfos = new Dictionary<ChaosGods, GeneAndTraitInfo>
+            GeneAndTraitInfo geneAndTraitInfo = new GeneAndTraitInfo
             {
-                { ChaosGods.Undivided, new GeneAndTraitInfo { opinionTrait = 0, opinionGene = 0, willGiveBeneficial = false, wontGiveGift = false } },
-                { ChaosGods.Khorne, new GeneAndTraitInfo { opinionTrait = 0, opinionGene = 0, willGiveBeneficial = false, wontGiveGift = false } },
-                { ChaosGods.Tzeentch, new GeneAndTraitInfo { opinionTrait = 0, opinionGene = 0, willGiveBeneficial = false, wontGiveGift = false } },
-                { ChaosGods.Nurgle, new GeneAndTraitInfo { opinionTrait = 0, opinionGene = 0, willGiveBeneficial = false, wontGiveGift = false } },
-                { ChaosGods.Slaanesh, new GeneAndTraitInfo { opinionTrait = 0, opinionGene = 0, willGiveBeneficial = false, wontGiveGift = false } }
+                ownerPawn = pawn
             };
-            bool pure = false;
 
             List<Trait> pawnTraits = pawn.story.traits.allTraits;
             //Checks the traits of the pawns for thei influence on the outcome of the ritual.
@@ -67,18 +63,13 @@ namespace Core40k
                 if (trait.def.HasModExtension<DefModExtension_TraitAndGeneOpinion>())
                 {
                     DefModExtension_TraitAndGeneOpinion temp = trait.def.GetModExtension<DefModExtension_TraitAndGeneOpinion>();
-                    if (temp.purity)
-                    {
-                        pure = true;
-                    }
                     //Find the gods for the trait that wont gift the pawn if they have said trait.
-                    foreach (ChaosGods god in temp.godWontGift)
+                    if (temp.godWontGift.Contains(god))
                     {
-                        geneAndTraitInfos.SetOrAdd(god, ChangeWontGiftStatus(true, geneAndTraitInfos.TryGetValue(god)));
+                        geneAndTraitInfo.wontGiveGift = true;
                     }
-
-                    //Gets the opinion of the trait
-                    foreach (GodOpinion opinion in temp.godOpinion)
+                    GodOpinion opinion = temp.godOpinion.Find(x => x.god == god);
+                    if (opinion.god == god)
                     {
                         int t = 0;
                         if (!opinion.degreeOpinion.NullOrEmpty())
@@ -89,18 +80,14 @@ namespace Core40k
                         {
                             t = opinion.opinion;
                         }
-
-                        geneAndTraitInfos.SetOrAdd(opinion.god, AddToOpinion(t, geneAndTraitInfos.TryGetValue(opinion.god), true));
+                        geneAndTraitInfo.opinionTrait = t;
                     }
-
-                    //Finds the gods that will guarentee a beneficial gift if chosen to gift the pawn.
-                    foreach (ChaosGods god in temp.makesGodGiveBeneficial)
+                    if (temp.makesGodGiveBeneficial.Contains(god))
                     {
-                        geneAndTraitInfos.SetOrAdd(god, ChangeBeneficialStatus(true, geneAndTraitInfos.TryGetValue(god)));
+                        geneAndTraitInfo.willGiveBeneficial = true;
                     }
                 }
             }
-
 
             List<Gene> pawnGenes = pawn.genes.GenesListForReading;
             //Checks the genes of the pawns for thei influence on the outcome of the ritual.
@@ -109,33 +96,24 @@ namespace Core40k
                 if (gene.def.HasModExtension<DefModExtension_TraitAndGeneOpinion>())
                 {
                     DefModExtension_TraitAndGeneOpinion temp = gene.def.GetModExtension<DefModExtension_TraitAndGeneOpinion>();
-                    if (temp.purity)
-                    {
-                        pure = true;
-                    }
                     //Find the gods for the gene that wont gift the pawn if they have said gene.
-                    foreach (ChaosGods god in temp.godWontGift)
+                    if (temp.godWontGift.Contains(god))
                     {
-                        geneAndTraitInfos.SetOrAdd(god, ChangeWontGiftStatus(true, geneAndTraitInfos.TryGetValue(god)));
+                        geneAndTraitInfo.wontGiveGift = true;
                     }
-
-                    //Gets the opinion of the gene
-                    foreach (GodOpinion opinion in temp.godOpinion)
+                    GodOpinion opinion = temp.godOpinion.Find(x => x.god == god);
+                    if (opinion.god == god)
                     {
-                        int t = opinion.opinion;
-
-                        geneAndTraitInfos.SetOrAdd(opinion.god, AddToOpinion(t, geneAndTraitInfos.TryGetValue(opinion.god), false));
+                        geneAndTraitInfo.opinionTrait = opinion.opinion;
                     }
-
-                    //Finds the gods that will guarentee a beneficial gift if chosen to gift the pawn.
-                    foreach (ChaosGods god in temp.makesGodGiveBeneficial)
+                    if (temp.makesGodGiveBeneficial.Contains(god))
                     {
-                        geneAndTraitInfos.SetOrAdd(god, ChangeBeneficialStatus(true, geneAndTraitInfos.TryGetValue(god)));
+                        geneAndTraitInfo.willGiveBeneficial = true;
                     }
                 }
             }
 
-            return (geneAndTraitInfos, pure);
+            return geneAndTraitInfo;
         }
 
         public static void UnansweredCall(Pawn billDoer, ChaosGods giftGiver, bool isPure)
@@ -148,41 +126,6 @@ namespace Core40k
             }
             
             Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_NoGiftGiven);
-        }
-
-        public static void AnsweredCall(Pawn billDoer, ChaosGods giftGiver, string grantedGiftsText)
-        {
-            string letterText = "RitualCallsAnsweredLetter".Translate(billDoer.Named("PAWN"), ChaosEnumUtils.Convert(giftGiver));
-            string messageText = "RitualCallsAnsweredMessage".Translate(billDoer.Named("PAWN"), ChaosEnumUtils.Convert(giftGiver)) + grantedGiftsText;
-            Find.LetterStack.ReceiveLetter(letterText, messageText, Core40kDefOf.BEWH_GiftGiven);
-        }
-
-        public static float GetOpinionBasedOnTraitsAndGenes(float chance, ChaosGods giftGiver, Dictionary<ChaosGods, GeneAndTraitInfo> geneAndTraitInfo)
-        {
-            Core40kSettings modSettings = LoadedModManager.GetMod<Core40kMod>().GetSettings<Core40kSettings>();
-
-            chance += geneAndTraitInfo.TryGetValue(giftGiver).opinionTrait * modSettings.offsetPerHatedOrLovedTrait;
-            chance += geneAndTraitInfo.TryGetValue(giftGiver).opinionGene * modSettings.offsetPerHatedOrLovedGene;
-            
-            return chance;
-        }
-
-        public static float GetOpinionBasedOnSkills(float chance, Pawn pawn, List<SkillDef> skillsScale, float skillsScaleAmount)
-        {
-            if (!skillsScale.NullOrEmpty())
-            {
-                SkillRecord skillRecord;
-                foreach (SkillDef skill in skillsScale)
-                {
-                    skillRecord = pawn.skills.GetSkill(skill);
-                    if (skillRecord != null)
-                    {
-                        chance += skillRecord.GetLevel() * skillsScaleAmount;
-                    }
-                }
-            }
-
-            return chance;
         }
     
     }

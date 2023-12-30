@@ -2,7 +2,6 @@
 <Defs>
 
     <!-- Plaguesword Cut -->
-
     <DamageDef Name="CutBase">
         <defName>BEWH_PSCut</defName>
         <label>cut</label>
@@ -28,7 +27,6 @@
     </DamageDef>
 
     <!-- Plaguesword Stab -->
-
     <DamageDef>
         <defName>BEWH_PSStab</defName>
         <label>stab</label>
@@ -44,7 +42,6 @@
     </DamageDef>
 
     <!-- Warp Flame -->
-
     <DamageDef>
         <defName>BEWH_WarpFlame</defName>
         <workerClass>Core40k.DamageWorker_WarpFlame</workerClass>
@@ -61,6 +58,21 @@
         <defaultArmorPenetration>0</defaultArmorPenetration>
         <combatLogRules>Damage_Flame</combatLogRules>
         <canUseDeflectMetalEffect>false</canUseDeflectMetalEffect>
+    </DamageDef>
+
+    <!-- Warp Energy -->
+    <DamageDef>
+        <defName>BEWH_WarpEnergy</defName>
+        <label>warp burn</label>
+        <workerClass>DamageWorker_AddInjury</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been horribly killed by exposure to the warp.</deathMessage>
+        <hediff>BEWH_WarpEnergyBurn</hediff>
+        <hediffSolid>Crack</hediffSolid>
+        <armorCategory>Blunt</armorCategory>
+        <defaultDamage>20</defaultDamage>
+        <defaultArmorPenetration>0.7</defaultArmorPenetration>
+        <makesAnimalsFlee>true</makesAnimalsFlee>
     </DamageDef>
 
 </Defs>

@@ -11,14 +11,7 @@ namespace Core40k
         public List<GeneDef> removesGenes; //Gene must also be present in required genes.
 
         public List<GeneDef> givesGenes;
-        //public List<GeneDef> givesGenesRandom;
-
 
         public ChaosGods giftGiver = ChaosGods.Undivided;
-
-        public float skillsScaleAmount;
-
-        public float baseChance; //Base chance given pawn has no traits, genes and has 0 in every skill
     }
-
 }   

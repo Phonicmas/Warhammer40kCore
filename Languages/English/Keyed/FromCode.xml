@@ -11,18 +11,21 @@
   <MayNotHaveGene>{0} may not have the gene: {1}.</MayNotHaveGene>
   <DoesNotHaveGene>{0} does not have required gene: {1}.</DoesNotHaveGene>
 
-  <RitualCallsUnansweredLetter>{0} calls were left unanswered by {1}</RitualCallsUnansweredLetter>
-  <RitualCallsUnansweredMessage>{0} tried to plead with {1}, but was left unanswered.</RitualCallsUnansweredMessage>
+  <RitualCallsUnansweredLetter>Unsuccesfull ritual</RitualCallsUnansweredLetter>
+  <RitualCallsUnansweredMessage>{0} offered {1} gifts, but {1} won't deal with {0}.</RitualCallsUnansweredMessage>
 
-  <PawnIsPureReason>{0} tried to plead with {1}, but {1} does not deal with pure pawns</PawnIsPureReason>
-
-  <RitualCallsAnsweredLetter>{0} calls were answered by {1}</RitualCallsAnsweredLetter>
-  <RitualCallsAnsweredMessage>{0} pleaded with {1}, and was granted the following gifts:</RitualCallsAnsweredMessage>
+  <PawnIsPureReason>{0} offered {1} gift, but {0} is uncorruptable.</PawnIsPureReason>
 
   <TzeentchName>Tzeentch</TzeentchName>
   <KhorneName>Khorne</KhorneName>
   <NurgleName>Nurgle</NurgleName>
   <SlaaneshName>Slaanesh</SlaaneshName>
-  <UndividedName>the great Undivided</UndividedName>
+  <UndividedName>Undivided</UndividedName>
+
+  <Reset>Reset</Reset>
+
+  <CannotRecruitLetter>Unbreakable Loyalty</CannotRecruitLetter>
+  <CannotRecruitMessage>{1} tried to recruit {0}, but {0}'s unbreakable loyalty to their faction made them resist all attempts.\n\n{0} cannot be recruited.</CannotRecruitMessage>
+  <CannotEnslaveMessage>{1} tried to enslave {0}, but {0}'s unbreakable loyalty to their faction made them resist all attempts.\n\n{0} cannot be enslaved.</CannotEnslaveMessage>
 
 </LanguageData>

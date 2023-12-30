@@ -14,5 +14,8 @@
 
 
 ## New Module Ideas
-1. Techpriest Module
-    1. Make new mechinator machines such as servo skulls
+1. Servitor
+    1. Make Servitors, these can be crafted by putting living pawns into machines where you then choose a specialization for them.
+
+2. Drugs
+    1. Look at Black Crusade book for references

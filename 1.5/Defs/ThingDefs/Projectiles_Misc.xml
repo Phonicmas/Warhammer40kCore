@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<!-- Pink Horror Projectile -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>BEWH_PinkHorrorProjectileNoVPE</defName>
+		<label>warp flame shot</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<speed>50</speed>
+			<damageAmountBase>10</damageAmountBase>
+			<armorPenetrationBase>1.2</armorPenetrationBase>
+			<shadowSize>0.6</shadowSize>
+		</projectile>
+	</ThingDef>
+
+	<!-- Blue Horror Projectile -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>BEWH_BlueHorrorProjectileNoVPE</defName>
+		<label>warp flame shot</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<speed>50</speed>
+			<damageAmountBase>6</damageAmountBase>
+			<armorPenetrationBase>1</armorPenetrationBase>
+			<shadowSize>0.6</shadowSize>
+		</projectile>
+	</ThingDef>
+
+</Defs>

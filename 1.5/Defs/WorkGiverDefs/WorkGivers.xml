@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ============= Ritual ============= -->
+
+    <WorkGiverDef>
+        <defName>BEWH_RitualWorkGiver</defName>
+        <label>perform ritual</label>
+        <giverClass>Core40k.WorkGiver_DoBill_Ritual</giverClass>
+        <workType>BEWH_RitualWorkType</workType>
+        <priorityInType>1</priorityInType>
+        <verb>perform ritual</verb>
+        <gerund>performing ritual at</gerund>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+</Defs>

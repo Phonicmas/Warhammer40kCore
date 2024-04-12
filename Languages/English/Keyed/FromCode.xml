@@ -23,6 +23,7 @@
   <UndividedName>Undivided</UndividedName>
 
   <Reset>Reset</Reset>
+  <JumpTo>Jump to</JumpTo>
 
   <CannotRecruitLetter>Unbreakable Loyalty</CannotRecruitLetter>
   <CannotRecruitMessage>{1} tried to recruit {0}, but {0}'s unbreakable loyalty to their faction made them resist all attempts.\n\n{0} cannot be recruited.</CannotRecruitMessage>

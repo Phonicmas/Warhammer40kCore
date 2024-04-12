@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- Warp burn -->
+    <HediffDef ParentName="InjuryBase">
+        <defName>BEWH_WarpBurn</defName>
+        <label>warp burn</label>
+        <labelNoun>a warp burn</labelNoun>
+        <description>A warp burn.</description>
+        <comps>
+            <li Class="HediffCompProperties_TendDuration">
+                <labelTendedWell>bandaged</labelTendedWell>
+                <labelTendedWellInner>tended</labelTendedWellInner>
+                <labelSolidTendedWell>tended</labelSolidTendedWell>
+            </li>
+            <li Class="HediffCompProperties_GetsPermanent">
+                <permanentLabel>warp burn scar</permanentLabel>
+            </li>
+        </comps>
+        <injuryProps>
+            <painPerSeverity>0.004</painPerSeverity>
+            <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+            <canMerge>true</canMerge>
+            <destroyedLabel>Warp-burned off</destroyedLabel>
+            <destroyedOutLabel>Warp-burned out</destroyedOutLabel>
+        </injuryProps>
+    </HediffDef>
+
+    <!-- Warp Energy Burn -->
+    <HediffDef ParentName="InjuryBase">
+        <defName>BEWH_WarpEnergyBurn</defName>
+        <label>warp burn</label>
+        <labelNoun>a warp burn</labelNoun>
+        <description>A burn cause by exposure to the warp.</description>
+        <comps>
+            <li Class="HediffCompProperties_TendDuration">
+                <labelTendedWell>bandaged</labelTendedWell>
+                <labelTendedWellInner>tended</labelTendedWellInner>
+                <labelSolidTendedWell>tended</labelSolidTendedWell>
+            </li>
+            <li Class="HediffCompProperties_Infecter">
+                <infectionChance>0.15</infectionChance>
+            </li>
+            <li Class="HediffCompProperties_GetsPermanent">
+                <permanentLabel>burned scar</permanentLabel>
+            </li>
+        </comps>
+        <injuryProps>
+            <painPerSeverity>0.0225</painPerSeverity>
+            <averagePainPerSeverityPermanent>0.01</averagePainPerSeverityPermanent>
+            <bleedRate>0.01</bleedRate>
+            <canMerge>true</canMerge>
+            <destroyedLabel>Burned off</destroyedLabel>
+            <destroyedOutLabel>Burned out</destroyedOutLabel>            
+        </injuryProps>
+    </HediffDef>
+
+</Defs>

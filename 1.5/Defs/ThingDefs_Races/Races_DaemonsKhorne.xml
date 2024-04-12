@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========= Bloodletter base ========= -->
+    <ThingDef ParentName="BEWH_DaemonBase" Name="BEWH_BloodletterBase" Abstract="True">
+        <label>bloodletter</label>
+        <description>Daemon of Khorne</description>
+        <statBases>
+            <MarketValue>150</MarketValue>
+            <ArmorRating_Sharp>0.55</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+            <ArmorRating_Heat>1.2</ArmorRating_Heat>
+            <MoveSpeed>6</MoveSpeed>
+        </statBases>
+        <tools>
+            <li>
+                <label>left claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>12</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+            <li>
+                <label>right claws</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>12</power>
+                <cooldownTime>1</cooldownTime>
+                <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+        </tools>
+    </ThingDef>
+
+
+    <!-- ========= Bloodletters ========= -->
+
+
+    <ThingDef ParentName="BEWH_BloodletterBase">
+        <defName>BEWH_Bloodletter</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>Manhunter</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BEWH_BloodletterBase">
+        <defName>BEWH_SummonedBloodletter</defName>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>BEWH_FriendlyDaemon</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <PawnKindDef ParentName="BEWH_DaemonSummonedBase">
+        <defName>BEWH_SummonedBloodletter</defName>
+        <label>bloodletter</label>
+        <race>BEWH_SummonedBloodletter</race>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Daemon/Bloodletter</texPath>
+                    <drawSize>1.5</drawSize>
+                    <shaderType>MetaOverlay</shaderType>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <weaponTags>
+            <li>Bloodletter</li>
+        </weaponTags>
+    </PawnKindDef>
+
+
+</Defs>

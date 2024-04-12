@@ -10,23 +10,7 @@ namespace Core40k
     {
         public override void Notify_IterationCompleted(Pawn billDoer, List<Thing> ingredients)
         {
-            if (recipe.GetModExtension<DefModExtension_Ritual>() == null)
-            {
-                UnansweredCall(billDoer, ChaosGods.None, false);
-                return;
-            }
-
             DefModExtension_Ritual defMod = recipe.GetModExtension<DefModExtension_Ritual>();
-            ChaosGods giftGiver = defMod.giftGiver;
-
-            GeneAndTraitInfo geneAndTraitInfo = GetGeneAndTraitInfo(billDoer, giftGiver);
-
-            //Gift giver wont give pawn gift
-            if (geneAndTraitInfo.wontGiveGift)
-            {
-                UnansweredCall(billDoer, giftGiver, false);
-                return;
-            }
 
             List<GeneDef> genesToGive = defMod.givesGenes;
             List<GeneDef> genesToRemove = defMod.removesGenes;

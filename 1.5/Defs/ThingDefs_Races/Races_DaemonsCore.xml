@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Enables ranged attacks on animals -->
+    <MVCF.ModDef>
+        <defName>BEWH_Daemons</defName>
+        <label>Daemons</label>
+        <description>Adding animal ranged attacks for Daemons</description>
+        <ActivateFeatures>
+            <li>RangedAnimals</li>
+            <li>IntegratedToggle</li>
+        </ActivateFeatures>
+    </MVCF.ModDef>
+
+
+    <!-- Base-->
+    <ThingDef ParentName="AnimalThingBase" Name="BEWH_DaemonBase" Abstract="True">
+        <statBases>
+            <PsychicSensitivity>5</PsychicSensitivity>
+            <ToxicResistance>0</ToxicResistance>
+            <ComfyTemperatureMin>-9999</ComfyTemperatureMin>
+            <ComfyTemperatureMax>9999</ComfyTemperatureMax>
+            <ImmunityGainSpeed>3</ImmunityGainSpeed>
+            <PainShockThreshold>3</PainShockThreshold>
+            <Flammability>0</Flammability>
+            <MeatAmount>0</MeatAmount>
+            <LeatherAmount>0</LeatherAmount>
+        </statBases>
+        <uiIconScale>1.5</uiIconScale>
+        <tradeability>None</tradeability>
+        <tradeTags>
+            <li>NonContractable</li>
+        </tradeTags>
+        <race>
+            <body>BEWH_ChaosDaemon</body>
+            <intelligence>ToolUser</intelligence>
+            <canBePredatorPrey>false</canBePredatorPrey>
+            <herdMigrationAllowed>false</herdMigrationAllowed>
+            <canReleaseToWild>false</canReleaseToWild>
+            <trainability>None</trainability>
+            <showTrainables>false</showTrainables>
+            <playerCanChangeMaster>false</playerCanChangeMaster>
+            <hideTrainingTab>true</hideTrainingTab>
+            <disableAreaControl>true</disableAreaControl>
+            <wildness>0</wildness>
+            <useMeatFrom>Pig</useMeatFrom>
+            <petness>0</petness>
+            <hediffGiverSets Inherit="False" />
+            <needsRest>false</needsRest>
+            <hasGenders>false</hasGenders>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>1000</minAge>
+                </li>
+            </lifeStageAges>
+            <deathActionWorkerClass>Core40k.DeathActionWorker_Daemon</deathActionWorkerClass>
+        </race>
+        <comps>
+            <li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+                <mentalstate>BEWH_FriendlyDaemon</mentalstate>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+                <timeToDieInTicks>15000</timeToDieInTicks>
+                <effect>true</effect>
+                <effectFilth>Filth_CorpseBile</effectFilth>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+                <hediffsToRemove>
+                    <li>Animal_Plague</li>
+                    <li>Animal_Flu</li>
+                    <li>AB_AnimalSporesAllergy</li>
+                </hediffsToRemove>
+                <tickInterval>2000</tickInterval>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity">
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <PawnKindDef ParentName="AnimalKindBase" Name="BEWH_DaemonSummonedBase" Abstract="True">
+        <combatPower>100</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1</ecoSystemWeight>
+        <weaponMoney>9999~9999</weaponMoney>
+        <destroyGearOnDrop>true</destroyGearOnDrop>
+    </PawnKindDef>
+
+
+</Defs>

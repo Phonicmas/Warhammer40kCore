@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <!-- Plagubearer-->
+
+  <ToolCapacityDef>
+    <defName>BEWH_PSStab</defName>
+    <label>stab</label>
+  </ToolCapacityDef>
+
+  <ToolCapacityDef>
+    <defName>BEWH_PSCut</defName>
+    <label>cut</label>
+  </ToolCapacityDef>
+
+</Defs>

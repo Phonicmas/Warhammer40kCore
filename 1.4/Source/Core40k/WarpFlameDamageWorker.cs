@@ -32,7 +32,7 @@ namespace Core40k
 
                 if (!damageResult2.deflected && !dinfo2.InstantPermanentInjury && Rand.Chance(FireUtility.ChanceToAttachFireFromEvent(victim)))
                 {
-                    victim.TryAttachFire(Rand.Range(0.15f, 0.25f));
+                    victim.TryAttachFire(Rand.Range(0.15f, 0.25f), pawn);
                 }
             }
             if (victim.Destroyed && map != null && pawn == null)
@@ -55,7 +55,7 @@ namespace Core40k
             base.ExplosionAffectCell(explosion, c, damagedThings, ignoredThings, canThrowMotes);
             if (def == DamageDefOf.Flame && Rand.Chance(FireUtility.ChanceToStartFireIn(c, explosion.Map)))
             {
-                FireUtility.TryStartFireIn(c, explosion.Map, Rand.Range(0.2f, 0.6f));
+                FireUtility.TryStartFireIn(c, explosion.Map, Rand.Range(0.2f, 0.6f), explosion);
             }
         }
     }

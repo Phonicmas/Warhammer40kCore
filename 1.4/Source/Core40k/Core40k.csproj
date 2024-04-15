@@ -86,8 +86,8 @@
     <Compile Include="DefModExtensions\DefModExtension_UntradeablePawn.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_NoSlavesPatch.cs" />
     <Compile Include="MentalState_FriendlyDaemon.cs" />
-    <Compile Include="DeathActionWorker_PinkHorror.cs" />
-    <Compile Include="DeathActionWorker_Daemon.cs" />
+    <Content Include="DeathActionWorker_PinkHorror.cs.txt" />
+    <Content Include="DeathActionWorker_Daemon.cs.txt" />
     <Compile Include="WorkGiver_DoBill_Ritual.cs" />
     <Compile Include="RecipeWorkerClass_Ritual.cs" />
     <Compile Include="WarpFlameDamageWorker.cs" />

@@ -57,7 +57,7 @@
                     <minAge>1000</minAge>
                 </li>
             </lifeStageAges>
-            <deathActionWorkerClass>Core40k.DeathActionWorker_Daemon</deathActionWorkerClass>
+            <!--<deathActionWorkerClass>Core40k.DeathActionWorker_Daemon</deathActionWorkerClass>-->
         </race>
         <comps>
             <li Class="AnimalBehaviours.CompProperties_InitialMentalState">

@@ -5,9 +5,9 @@
     <ThingDef ParentName="BEWH_DaemonBase" Name="BEWH_PinkHorrorBase" Abstract="True">
         <label>pink horror</label>
         <description>Daemon of Tzeentch</description>
-        <race>
-            <deathActionWorkerClass>Core40k.DeathActionWorker_PinkHorror</deathActionWorkerClass>
-        </race>
+        <!--<race>
+            <deathAction Class="Core40k.DeathActionProperties_PinkHorror"/>
+        </race>-->
         <statBases>
             <MarketValue>150</MarketValue>
             <ArmorRating_Sharp>0.3</ArmorRating_Sharp>

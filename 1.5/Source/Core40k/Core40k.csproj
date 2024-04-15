@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="ChaosGodsEnum.cs" />
     <Compile Include="Core40kModUtils.cs" />
+    <Compile Include="DeathActionProperties_Daemon.cs" />
+    <Compile Include="DeathActionProperties_PinkHorror.cs" />
     <Compile Include="DefModExtensions\DefModExtension_DaemonSummon.cs" />
     <Compile Include="Recipe_InstallImplantWithLevels.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_LostHeartSurvivalPatch.cs" />

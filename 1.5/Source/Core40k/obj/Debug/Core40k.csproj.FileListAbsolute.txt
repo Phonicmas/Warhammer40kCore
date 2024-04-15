@@ -6,7 +6,7 @@ C:\Programmer\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.4\Assembli
 C:\Programmer\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.4\Source\Core40k\obj\Debug\Core40k.csproj.AssemblyReference.cache
 C:\Programmer\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.4\Source\Core40k\obj\Debug\Core40k.csproj.CoreCompileInputs.cache
 C:\Programmer\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.4\Source\Core40k\obj\Debug\Core40k.dll
+C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.5\Assemblies\Core40k.dll
 C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.5\Source\Core40k\obj\Debug\Core40k.csproj.AssemblyReference.cache
 C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.5\Source\Core40k\obj\Debug\Core40k.csproj.CoreCompileInputs.cache
 C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.5\Source\Core40k\obj\Debug\Core40k.dll
-C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCore\1.5\Assemblies\Core40k.dll

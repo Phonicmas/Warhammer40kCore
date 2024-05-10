@@ -59,7 +59,9 @@
   <ItemGroup>
     <Compile Include="ChaosGodsEnum.cs" />
     <Compile Include="Core40kModUtils.cs" />
+    <Compile Include="DefModExtensions\DefModExtension_InheritableArchite.cs" />
     <Compile Include="DefModExtensions\DefModExtension_DaemonSummon.cs" />
+    <Compile Include="HarmonyPatches\HarmonyPatch_SpecificInheritableArchiteGenes.cs" />
     <Compile Include="Recipe_InstallImplantWithLevels.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_LostHeartSurvivalPatch.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_LostLungSurvivalPatch.cs" />

@@ -10,10 +10,8 @@
         <gerundLabel>ritual</gerundLabel>
         <description>Perform ritual</description>
         <verb>Perform ritual</verb>
-        <naturalPriority>1</naturalPriority>
+        <naturalPriority>3</naturalPriority>
         <workTags>
-            <li>ManualSkilled</li>
-            <li>Intellectual</li>
             <li>AllWork</li>
         </workTags>
     </WorkTypeDef>

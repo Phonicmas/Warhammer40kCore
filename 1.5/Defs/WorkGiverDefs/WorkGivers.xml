@@ -8,7 +8,7 @@
         <label>perform ritual</label>
         <giverClass>Core40k.WorkGiver_DoBill_Ritual</giverClass>
         <workType>BEWH_RitualWorkType</workType>
-        <priorityInType>1</priorityInType>
+        <priorityInType>3</priorityInType>
         <verb>perform ritual</verb>
         <gerund>performing ritual at</gerund>
         <prioritizeSustains>true</prioritizeSustains>

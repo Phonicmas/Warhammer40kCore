@@ -1,8 +1,5 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
-using static Core40k.Core40kUtils;
 
 namespace Core40k
 {

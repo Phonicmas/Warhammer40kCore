@@ -59,9 +59,9 @@
   <ItemGroup>
     <Compile Include="ChaosGodsEnum.cs" />
     <Compile Include="Core40kModUtils.cs" />
-    <Compile Include="DeathActionProperties_Daemon.cs" />
-    <Compile Include="DeathActionProperties_PinkHorror.cs" />
+    <Compile Include="DefModExtensions\DefModExtension_InheritableArchite.cs" />
     <Compile Include="DefModExtensions\DefModExtension_DaemonSummon.cs" />
+    <Compile Include="HarmonyPatches\HarmonyPatch_SpecificInheritableArchiteGenes.cs" />
     <Compile Include="Recipe_InstallImplantWithLevels.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_LostHeartSurvivalPatch.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_LostLungSurvivalPatch.cs" />
@@ -82,15 +82,13 @@
     <Compile Include="Recipe_InstallImplantRequiringGene.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_NoDaemonNotificationPatch.cs" />
     <Compile Include="Letter_JumpTo.cs" />
-    <Compile Include="WorkGiver_DoBill_Ritual.cs" />
     <Compile Include="WeightedSelection.cs" />
     <Compile Include="DefModExtensions\DefModExtension_Geneseed.cs" />
     <Compile Include="DefModExtensions\DefModExtension_Ritual.cs" />
     <Compile Include="DefModExtensions\DefModExtension_UntradeablePawn.cs" />
     <Compile Include="HarmonyPatches\HarmonyPatch_NoSlavesPatch.cs" />
     <Compile Include="MentalState_FriendlyDaemon.cs" />
-    <Compile Include="DeathActionWorker_PinkHorror.cs" />
-    <Compile Include="DeathActionWorker_Daemon.cs" />
+    <Compile Include="WorkGiver_DoBill_Ritual.cs" />
     <Compile Include="RecipeWorkerClass_Ritual.cs" />
     <Compile Include="WarpFlameDamageWorker.cs" />
     <Compile Include="Core40kMod.cs" />
